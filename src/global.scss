@@ -26,6 +26,11 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+.navMenu1{
+  width: 90% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .navMenu1 button {
   color: #707070;
@@ -34,7 +39,7 @@
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 100px;
+  width: 119px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: white;
@@ -80,23 +85,23 @@
 }
 
 .navMenu1 button:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(140px);
-  transform: translateX(140px);
+  -webkit-transform: translateX(180px);
+  transform: translateX(180px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu1 button:nth-child(4):hover ~ .dot {
-  -webkit-transform: translateX(250px);
-  transform: translateX(250px);
+  -webkit-transform: translateX(300px);
+  transform: translateX(300px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 .navMenu1 button:nth-child(5):hover ~ .dot {
-  -webkit-transform: translateX(350px);
-  transform: translateX(350px);
+  -webkit-transform: translateX(420px);
+  transform: translateX(420px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
