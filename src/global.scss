@@ -31,6 +31,10 @@
   margin-left: auto;
   margin-right: auto;
 }
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 .navMenu1 button {
   color: #707070;
@@ -42,7 +46,7 @@
   width: 119px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background-color: white;
+  background-color: #F8F6FB;
 }
 .navMenu1 button.active{
   color: #5260FF !important;
@@ -51,6 +55,7 @@
   border-left: 2px solid #5260FF;
   border-right: 2px solid #5260FF;
   border-radius: 3px;
+  
 }
 .navMenu1 button:hover {
   color: #5260FF;
@@ -107,3 +112,71 @@
   opacity: 1;
 }
 
+
+@media (min-width: 767px) {
+  ion-card {
+    width: calc(25% - 20px);
+    /* 4 cards on a line */
+
+  }
+  
+
+  ion-card:hover {
+    background-color: #707070 !important;
+    color: #FFF;
+  }
+  
+}
+
+ion-card {
+
+  color: white;
+  background-size: 350px 250px;
+  font: optional;
+  font-weight: bold;
+}
+
+ion-card-title, ion-card-subtitle {
+  color: white !important;
+  font: optional;
+  font-weight: bold;
+}
+ion-button{
+  color: #FFF;
+    font-weight: bold;
+  font: 1em sans-serif;
+  background-color: #5260FF;
+
+}
+
+@media (max-width: 768px) {
+  .navMenu1 {
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;  /* for Internet Explorer */
+    scrollbar-width: none; /* for Firefox */
+  }
+  .navMenu1::-webkit-scrollbar {
+      width: 0.2em;
+      background-color: transparent; 
+  }
+  .navMenu1 {
+    position: relative;
+  }
+  
+  .navMenu1 button {
+    padding: 0 12% !important;
+  }
+  .navMenu1 button.active {
+    position: absolute;
+    left: 40%;
+    width: 40%;
+    font-size: 12px;
+    transform: translateX(-35%);
+  }
+  
+  
+}

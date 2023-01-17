@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AfficherService } from '../Services/afficher.service';
 
 @Component({
   selector: 'app-avenir',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AvenirPage {
 
-  constructor() {}
+  constructor( private serviceAfficher:AfficherService) { }
 
+  challenge:any;
+  ngOnInit() {
+    this.serviceAfficher.afficherChallengeAvenir().subscribe(data => {
+      this.challenge = data;
+      console.table(this.challenge);
+    });
+  }
 }

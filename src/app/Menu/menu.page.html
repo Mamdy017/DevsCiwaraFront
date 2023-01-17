@@ -1,13 +1,36 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar color="tertiary">
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Mon profile</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding" color="light">
-    <ion-button style="background-color:#707070;border-radius: 12px; color:white;">Se connecter</ion-button><br>
-    <ion-button [disabled]="true">S'incrire</ion-button>
-  <!-- <img src="../../assets/icon/logo31.png" class="logo" alt=""> -->
+  <ion-content>
+    <div *ngIf="!isLoggedIn">
+      <ion-button class="" id="open-custom-dialog" expand="block"
+        style="background-color:#707070;border-radius: 12px; color:white;" (click)="openModal()">Se
+        connecter</ion-button>
+      <ion-button class="" id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
+    </div>
+    <div *ngIf="isLoggedIn" class="nav-item  dropdown">
+      <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+          <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
+              class="btn btn-secondary"> <img src="{{currentUser.profile}}" height="100" width="100" /></button>
+            <span class="name mt-3">{{currentUser.username}}</span> <span class="idd">{{currentUser.email}}</span>
+
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">12000<span
+                  class="follow">Points</span></span> </div>
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Modifier profile</button> </div>
+            <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital
+                artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
+                  class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
+                  class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content" color="tertiary">
@@ -17,222 +40,30 @@
         <ion-menu-button class="men"></ion-menu-button>
         <img src="../../assets/lol.png" class="logo logo2" alt="">
       </ion-buttons>
-      <div class="row">
+      <div class="row Rechercher">
         <div class="col-md-8">
+          <h1 (click)="logout()">bbb</h1>
         </div>
         <div class="col-md-4">
           <ion-searchbar color="light" placeholder="Rechercher..."></ion-searchbar>
         </div>
       </div>
       <ion-buttons slot="end">
-        <ion-button class="connexion" id="open-custom-dialog" expand="block"
-          style="background-color:#707070;border-radius: 12px; color:white;">Se connecter</ion-button>
-        <ion-button class="connexion" id="open-custom-dialog1">S'incrire</ion-button>
-        <img src="../../assets/lol.png" class="logo logo1" alt="">
-        <div class="nav-item dropdown" >
+        <div *ngIf="!isLoggedIn" style="display: flex;">
+          <ion-button class="connexion" (click)="openModal()" id="open-custom-dialog" expand="block"
+            style="background-color:#707070;border-radius: 12px; color:white;">Se connecter</ion-button>
+          <ion-button class="connexion" id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
+        </div>
+        <div *ngIf="isLoggedIn" class="nav-item profile dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-            <img class="rounded-circle me-lg-2" src="../../assets/icon/favicon.png" alt=""
-              style="width: 40px; height: 40px;">
-            <span class="d-none d-lg-inline-flex">John Doe</span>
+            <img class="rounded-circle me-lg-2" src="{{currentUser.profile}}" alt="" style="width: 40px; height: 40px;">
+            <span class="d-none d-lg-inline-flex">{{ currentUser.username }}</span>
           </a>
         </div>
       </ion-buttons>
-
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding" color="dark">
-
-    <div id="container" color="dark">
-      <div class="row">
-
-        <div class="col-md-6">
-          <ion-content class="ion-padding">
-            <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
-              <ng-template>
-                <div class="">
-                  <div class="box-root flex-flex flex-direction--column" style="flex-grow: 1;">
-                    <div class="loginbackground box-background--white padding-top--64">
-                      <div class="loginbackground-gridContainer">
-                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
-                          <div class="box-root"
-                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
-                          <div class="box-root box-divider--light-all-2 animationLeftRight tans3s"
-                            style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
-                          <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
-                          <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
-                          <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
-                          <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
-                          <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
-                          <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
-                          <div class="box-root box-divider--light-all-2 animationRightLeft tans3s"
-                            style="flex-grow: 1;"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="box-root padding-top--24 flex-flex flex-direction--column"
-                      style="flex-grow: 1; z-index: 9;">
-                      <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-                        <h1><a href="../../assets/logo.png" rel="dofollow">DevsCiwara</a></h1>
-                      </div>
-                      <div class="formbg-outer">
-                        <div class="formbg">
-                          <div class="formbg-inner padding-horizontal--48">
-                            <span class="padding-bottom--15">Se connecter à son compte</span>
-                            <form id="stripe-login">
-                              <div class="field padding-bottom--24">
-                                <label for="email">Email</label>
-                                <input type="email" name="email">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <div class="grid--50-50">
-                                  <label for="password">Password</label>
-                                  <div class="reset-pass">
-                                    <a href="#">Forgot your password?</a>
-                                  </div>
-                                </div>
-                                <input type="password" name="password">
-                              </div>
-
-                              <div class="field padding-bottom--24 py-3">
-                                <input type="submit" name="submit" value="connexion" style="background-color: #5260FF;">
-                              </div>
-                              <div class="field">
-                                <a class="ssolink" href="#" id="open-custom-dialog1">Vous n'avez pas de compte ? </a>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ng-template>
-            </ion-modal>
-          </ion-content>
-          <ion-content class="ion-padding">
-            <ion-modal id="example-modal" #modal trigger="open-custom-dialog1">
-              <ng-template>
-                <div class="" style="overflow: scroll;">
-                  <div class="box-root flex-flex flex-direction--column" style="flex-grow: 1;">
-                    <div class="loginbackground box-background--white padding-top--64">
-                      <div class="loginbackground-gridContainer">
-                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
-                          <div class="box-root"
-                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
-                          <div class="box-root box-divider--light-all-2 animationLeftRight tans3s"
-                            style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
-                          <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
-                          <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
-                          <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
-                          <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
-                          <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
-                          <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;">
-                          </div>
-                        </div>
-                        <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
-                          <div class="box-root box-divider--light-all-2 animationRightLeft tans3s"
-                            style="flex-grow: 1;"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="box-root padding-top--24 flex-flex flex-direction--column"
-                      style="flex-grow: 1; z-index: 9;">
-                      <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-                        <h1><a href="../../assets/logo.png" rel="dofollow">DevsCiwara</a></h1>
-                      </div>
-                      <div class="formbg-outer">
-                        <div class="formbg">
-                          <div class="formbg-inner padding-horizontal--48">
-                            <span class="padding-bottom--15">Créer un compte</span>
-                            <form id="stripe-login">
-                              <div class="field padding-bottom--24">
-                                <label for="email">Email</label>
-                                <input type="email" name="email">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <label for="email">Email</label>
-                                <input type="email" name="email">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <label for="email">Email</label>
-                                <input type="email" name="email">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <label for="email">Email</label>
-                                <input type="email" name="email">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <div class="grid--50-50">
-                                  <label for="password">Password</label>
-                                </div>
-                                <input type="password" name="password">
-                              </div>
-                              <div class="field padding-bottom--24">
-                                <div class="grid--50-50">
-                                  <label for="password">Password</label>
-                                </div>
-                                <input type="password" name="password">
-                              </div>
-                              <div class="field padding-bottom--24 py-3">
-                                <input type="submit" name="submit" value="S'inscrire"
-                                  style="background-color: #5260FF;">
-                              </div>
-                              <div class="field">
-                                <a class="ssolink" href="#">Vous n'avez pas de compte ?</a>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ng-template>
-            </ion-modal>
-          </ion-content>
-        </div>
-      </div>
-    </div>
-
     <!-- ========debut du tabs barre=== -->
     <ion-tabs class="tabs" color="tertiary">
       <ion-tab-bar color="tertiary" slot="bottom">
@@ -260,4 +91,3 @@
     </ion-tabs>
   </ion-content>
 </div>
-

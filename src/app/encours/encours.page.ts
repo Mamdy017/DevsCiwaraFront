@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AfficherService } from '../Services/afficher.service';
 
 @Component({
   selector: 'app-encours',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncoursPage implements OnInit {
 
-  constructor() { }
+  constructor( private serviceAfficher:AfficherService) { }
 
+  challenge:any;
   ngOnInit() {
+    this.serviceAfficher.afficherChallengeEncours().subscribe(data => {
+      this.challenge = data;
+      console.table(this.challenge);
+    });
   }
 
 }

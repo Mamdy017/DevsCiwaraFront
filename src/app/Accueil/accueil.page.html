@@ -1,7 +1,6 @@
 <ion-content [fullscreen]="true">
   <div class=" " style="height: 65%;">
-
-    <ion-slides>
+    <ion-slides [options]="options">
       <ion-slide>
         <div class="slide row">
           <div class="col-md-6">
@@ -9,10 +8,14 @@
             <p>
               Améliorez votre expertise en programmation en prenant part à notre compétition de développement
             </p>
+            <div class="py-3 moi" style="margin-top: 25%;">
+              <button>
+                Voir les challenge
+              </button>
+            </div>
           </div>
           <div class="col-md-6">
-            <img src="http://www.web24zone.com/wp-content/uploads/2022/10/46207-programmer-1.gif"
-              style="width: 100% !important;height:50% !important;">
+            <img src="../../assets/programmer-1.gif" style="width: 100% !important;height:50% !important;">
           </div>
         </div>
       </ion-slide>
@@ -24,15 +27,19 @@
             <p>
               Rejoignez notre communauté de développeurs et relevez des défis pour améliorer vos compétences.
             </p>
+            <div class="py-3 moi" style="margin-top: 25%;">
+              <button>
+                Voir les challenge
+              </button>
+            </div>
           </div>
           <div class="col-md-6">
             <img
-              src="https://media1.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif?cid=6c09b95217ff4c2d72b65679ac8c00e08d7cf99583a739ef&rid=giphy.gif&ct=g"
+              src="../../assets/program.gif"
               style="width: 100% !important;height:70% !important;">
           </div>
         </div>
       </ion-slide>
-
       <ion-slide>
         <div class="slide row">
           <div class="col-md-6">
@@ -40,10 +47,15 @@
             <p>
               Devenez un développeur expérimenté en résolvant des défis techniques sur notre plateforme de challenge
             </p>
+            <div class="py-3 moi" style="margin-top: 25%;">
+              <button>
+                Voir les challenge
+              </button>
+            </div>
           </div>
           <div class="col-md-6">
-            <img src="http://www.web24zone.com/wp-content/uploads/2022/10/46207-programmer-1.gif"
-              style="width: 100% !important;height:50% !important;">
+            <img src="../../assets/Whyprogramming.gif"
+              style="width: 100% !important;height:80% !important; margin-top: 5%;">
           </div>
         </div>
       </ion-slide>
@@ -56,157 +68,41 @@
               Montrez vos compétences en programmation et gagnez de l'expérience en participant à notre challenge de
               développeurs
             </p>
+            <div class="py-3 moi" style="margin-top: 25%;">
+              <button>
+                Voir les challenge
+              </button>
+            </div>
           </div>
           <div class="col-md-6">
-            <img src="http://www.web24zone.com/wp-content/uploads/2022/10/46207-programmer-1.gif"
-              style="width: 100% !important;height:50% !important;">
+            <img src="../../assets/card.gif"
+              style="width: 100% !important;height:70% !important;">
           </div>
         </div>
       </ion-slide>
     </ion-slides>
   </div>
-  <div class="row" style="width: 98%; margin-left: auto; margin-right: auto;">
-    <h1>Les challenges a venir</h1>
-    <ion-card>
+  <div class="row mescards">
+    <h1>Les 8 challenges les plus recentes</h1>
+    <ion-card *ngFor="let ch of challenge"
+      [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'' + ch.photo + '\')'}">
       <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title> {{ch.titre}}</ion-card-title>
+        <ion-card-subtitle>Categories: {{ch.categories.nom}}</ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
+        {{ch.description}}
       </ion-card-content>
 
       <ion-button fill="clear">Action 1</ion-button>
       <ion-button fill="clear">Action 2</ion-button>
     </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-    <style>
-      /* iOS places the subtitle above the title */
-      @media (min-width: 767px) {
-        ion-card {
-          width: calc(25% - 20px);
-          /* 4 cards on a line */
-
-        }
-
-        ion-card:hover {
-          background-color: #707070 !important;
-          color: #FFF;
-        }
-      }
-
-
-      @media (max-width: 768px) {
-        ion-card {
-          width: calc(50% - 20px);
-          /* 2 cards on a line */
-        }
-
-        ion-card:hover {
-          background-color: #707070 !important;
-          color: #FFF;
-        }
-      }
-
-    </style>
   </div>
   <ion-footer>
     <ion-toolbar>
       <ion-title>Footer</ion-title>
     </ion-toolbar>
   </ion-footer>
+
 </ion-content>
