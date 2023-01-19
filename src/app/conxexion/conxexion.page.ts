@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
 import { ConnexionService } from '../Services/connexion.service';
 import { StorageService } from '../Services/storage.service';
 @Component({
@@ -62,6 +63,11 @@ export class ConxexionPage implements OnInit {
   cancel() {
     this.modal.dismiss();
   }
-
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ForgotPasswordPage
+    });
+    return await modal.present();
+  }
 
 }

@@ -40,6 +40,44 @@ export class ConnexionService {
     );
   }
 
+
+
+  newPassword(nouveau:any):Observable<any> {
+    return this.http.post(`http://localhost:8080/devs/auth/utilisateur/changePassword/`,nouveau);
+  
+  }
+
+  
+  changePassword(passwordData: any): Observable<any> {
+    return this.http.post('http://localhost:8080/devs/auth/utilisateur/changePassword', passwordData);
+  }
+
+  // newPassword(emailOrNumero: string, currentpassword: string, newPassword:string,confirmpassword:string): Observable<any> {
+  //   return this.http.post(
+  //     env + '/utilisateur/changePassword',
+  //     {
+  //       emailOrNumero,
+  //       currentpassword,
+  //       newPassword,
+  //       confirmpassword
+  //     },
+  //     httpOptions
+  //   );
+  // }
+
+  
+  forGotPassword(email:string): Observable<any> {
+    return this.http.post(
+      env + `/utilisateur/resetPassword/${email}`,
+      {
+       
+        email,
+       
+      },
+      httpOptions
+    );
+  }
+
   logout(): Observable<any> {
     const req = new HttpRequest('POST', env + 'signout', {}, httpOptions);
     return this.http.request(req);

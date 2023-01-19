@@ -41,10 +41,23 @@
         <img src="../../assets/lol.png" class="logo logo2" alt="">
       </ion-buttons>
       <div class="row Rechercher">
-        <div class="col-md-8">
-          <h1 (click)="logout()">bbb</h1>
+        <div class="col-md-8 d-flex justify-content-center">
+          <a href="/menu/accueil" >Accueil</a>
+          <a href="/menu/challenge">Challenge</a>
+          <a href="/menu/forum">Forum</a>
+          <!-- <a href="#about">About</a> -->
         </div>
-        <div class="col-md-4">
+        <style>
+          a {
+            float: left;
+
+            text-align: center;
+            padding: 20px 16px;
+            text-decoration: none;
+            font-size: 17px;
+          }
+        </style>
+        <div class="col-md-4 py-2">
           <ion-searchbar color="light" placeholder="Rechercher..."></ion-searchbar>
         </div>
       </div>
@@ -68,9 +81,9 @@
     <ion-tabs class="tabs" color="tertiary">
       <ion-tab-bar color="tertiary" slot="bottom">
         <ion-tab-button tab="accueil">
-          <ion-icon name="calendar"></ion-icon>
+          <ion-icon name="home-outline"></ion-icon>
           <ion-label>Accueil</ion-label>
-          <ion-badge>6</ion-badge>
+          
         </ion-tab-button>
 
         <ion-tab-button tab="terminer">
