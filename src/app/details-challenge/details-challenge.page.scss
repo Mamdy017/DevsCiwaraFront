@@ -1,0 +1,282 @@
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  // font-family: 'Open Sans', sans-serif;
+}
+body{
+    line-height: 1.5;
+}
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+ion-card{
+  width: 100% !important;
+}
+ion-button{
+  font-size: 0.7em;
+}
+.moi1{
+  margin-left:4% !important;
+}
+.img-showcase div{
+  width: 100%;
+  display: block;
+}
+.img-display{
+    overflow: hidden;
+}
+.moi2{
+  border-radius: 18px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.moi2 img{
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+.img-showcase{
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.img-showcase div{
+    min-width: 100%;
+}
+.img-select{
+    display: flex;
+}
+.img-item{
+    margin: 0.3rem;
+}
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3){
+    margin-right: 0;
+}
+.img-item:hover{
+    opacity: 0.8;
+}
+.product-content{
+    padding: 2rem 1rem;
+    box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+.product-title{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #707070;
+    margin: 1rem 0;
+}
+i{
+  color: #707070;
+}
+.product-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #707070;
+}
+.product-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #5260FF;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
+}
+.product-link:hover{
+    opacity: 0.9;
+}
+
+.product-rating span{
+    font-weight: 600;
+    color: #707070;
+}
+
+.product-detail h2{
+    text-transform: capitalize;
+    color: #707070;
+    padding-bottom: 0.2rem;
+    font-size: 1.2em;
+}
+.product-detail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+.product-detail ul{
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.product-detail ul li{
+    margin: 0;
+    list-style: none;
+    background: url(../../assets/icon/checked.png) left center no-repeat;
+    background-size: 18px;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+}
+ion-content {
+  // ICI ON BLOCK LE SCROLLING
+  --offset-bottom: auto !important;
+  background: #F8F6FB;
+  --overflow: hidden;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+      display: none;
+  }
+}
+.product-detail ul li span{
+    font-weight: 400;
+}
+.purchase-info{
+    margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+.purchase-info input{
+    width: 60px;
+}
+.purchase-info .btn{
+    cursor: pointer;
+    color: #fff;
+}
+.purchase-info .btn:first-of-type{
+    background: #5260FF;
+}
+.purchase-info .btn:last-of-type{
+    background: #5260FF;
+}
+.purchase-info .btn:hover{
+    opacity: 0.9;
+}
+.social-links{
+    display: flex;
+    align-items: center;
+}
+.social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #707070;
+    border: 1px solid #707070;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+.social-links a:hover{
+    background: #707070;
+    border-color: transparent;
+    color: #fff;
+}
+
+@media screen and (min-width: 992px){
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .card-wrapper{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content{
+        padding-top: 0;
+    }
+}
+// =================Forum css====
+
+.tous,ion-grid {
+  box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.question img {
+  margin-top: 2%;
+  margin-left: 2%;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  object-fit: fill;
+}
+
+.question {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.question span {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 4%;
+  margin-left: 3%;
+}
+
+.tous p {
+  margin-left: 2%;
+}
+.mesquestions{
+  margin-bottom: 3% !important;
+}
+.mesnombres{
+  margin-left: auto;
+  color: #5260FF;
+}
+
+
+
+.active {
+  // background-color: #5260FF;
+  color: #5260FF;
+  font-size: 12px;
+  height: 35px;
+  width: 95px;
+  background-color: white;
+  border-top: 1px solid #707070;
+  border-right: 1px solid #707070;
+  border-left: 1px solid #707070;
+  border-radius: 3px;
+  justify-content: center !important;
+}

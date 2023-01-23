@@ -1,27 +1,186 @@
 <ion-content>
-  
-  <nav class="navMenu1">
-    <h1>Les challenges à venir</h1>
-    <button routerLinkActive="active" routerLink="/menu/challenge">Tout</button>
-    <button routerLinkActive="active" routerLink="/menu/avenir">A venir</button>
-    <button routerLinkActive="active" routerLink="/menu/encours">En cours</button>
-    <button routerLinkActive="active" routerLink="/menu/terminer">Terminer</button>
-    <div class="dot"></div>
-  </nav>
-  <div class="row py-5" style="width: 98%; margin-left: auto; margin-right: auto;">
-    <ion-card *ngFor="let ch of challenge" [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'' + ch.photo + '\')'}">
-      <ion-card-header>
-        <ion-card-title> {{ch.titre}}</ion-card-title>
-        <ion-card-subtitle>Categories: {{ch.categories.nom}}</ion-card-subtitle>
-      </ion-card-header>
+  <div class="blog-card">
+    <img class="img-3" src="../../assets/mobile.jpg">
+    <ion-list class="my-radio-list">
+      <div [class.active]="activeOption === 1" (click)="activeOption = 1" (click)="showContent(1)"><span>Terminer</span>
+      </div>
+      <div [class.active]="activeOption === 2" (click)="activeOption = 2" (click)="showContent(2)"><span> &nbsp;Encours
+        </span></div>
+      <div [class.active]="activeOption === 3" (click)="activeOption = 3" (click)="showContent(3)"><span>&nbsp; A
+          venir</span></div>
+    </ion-list>
+    <div class="inner-part">
+      <div class="content content-1" *ngIf="content === 1">
+        <span>26 December 2017</span>
+        <div class="moi">
+          <div class="slider owl-carousel">
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Briana Tozour</div>
+                <div class="sub-title">Graphic Designer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
 
-      <ion-card-content>
-       {{ch.description}} 
-      </ion-card-content>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Eliana Maia</div>
+                <div class="sub-title">App Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text btn">
+             <button routerLink="/menu/details">Savoir plus...</button>
+          </div>
+          <hr>
+        </div>
+      </div>
+      <div class="content content-2" *ngIf="content === 2">
+        <span>26 December 2018</span>
+        <div class="moi">
+          <div class="slider owl-carousel">
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Briana Tozour</div>
+                <div class="sub-title">Graphic Designer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
 
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-   
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Eliana Maia</div>
+                <div class="sub-title">App Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                  <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text btn">
+             <button routerLink="/menu/details">Savoir plus...</button>
+          </div>
+          <hr>
+        </div>
+      </div>
+      <div class="content content-3" *ngIf="content === 3">
+        <span>26 December 2019</span>
+        <div class="moi">
+          <div class="slider owl-carousel">
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Briana Tozour</div>
+                <div class="sub-title">Graphic Designer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Pricilla Preez</div>
+                <div class="sub-title">Web Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="content1">
+                <div class="title">Eliana Maia</div>
+                <div class="sub-title">App Developer</div>
+                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
+                <div class="btn">
+                   <button routerLink="/menu/details">Savoir plus...</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text btn">
+             <button routerLink="/menu/details">Savoir plus...</button>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
+
+
+<!-- </ion-content> -->

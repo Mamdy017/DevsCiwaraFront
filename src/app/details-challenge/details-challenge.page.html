@@ -1,49 +1,241 @@
 <ion-content>
-  <nav class="navMenu1" style="display:flex">
-    <h1>Les details du challenge 10</h1>
-    <button routerLinkActive="active" routerLink="/menu/details">Information</button>
-    <button routerLinkActive="active" routerLink="/menu/avenir">Code</button>
-    <button routerLinkActive="active" routerLink="/menu/encours">Classement</button>
-    <button routerLinkActive="active" routerLink="/menu/terminer">Question</button>
-    <div class="dot"></div>
-  </nav>
+  <div class="card-wrapper">
+    <div class="card">
+      <!-- card left -->
+      <div class="product-imgs">
+        <div class="img-display">
+          <div class="img-showcase">
 
-  <div class="" style="width: 90%; margin-left: auto;border-radius: 12px; margin-right: auto; border: 1px solid #5260FF;">
+            <ion-card
+              [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/mobile.jpg)'}"
+              style="object-fit: fill;">
+              <ion-card-header>
+                <ion-card-title class="moi2"> cool</ion-card-title>
+                <ion-card-subtitle class="moi2">Categories:bien</ion-card-subtitle>
+              </ion-card-header>
 
+              <ion-card-content class="moi2">
+                meta description
+              </ion-card-content>
+              <div class="" style="display: flex; background-color: #5260FF;">
 
-    <ion-grid style="width: 99%; margin-left: auto; margin-right: auto; border-bottom: 1px solid #5260FF;">
-      <ion-row>
-        <ion-col size="auto"  style="border-right:1px solid #5260FF ;">
-          <div style="width: 150px">2</div>
-        </ion-col>
-        <ion-col class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita odio iure, vitae, sed ab deserunt eaque adipisci accusamus similique sunt, odit sit? Doloremque nulla necessitatibus ipsa cum tempora. Quidem, aspernatur.</ion-col>
-      </ion-row>
-    </ion-grid>
+                <ion-button fill="clear" [class.active]="activeOption === 1" (click)="activeOption = 1" (click)="showContent(1)">Détails</ion-button>
+                <ion-button fill="clear" [class.active]="activeOption === 2" (click)="activeOption = 2" (click)="showContent(2)">Code</ion-button>
+                <ion-button fill="clear"[class.active]="activeOption === 3" (click)="activeOption = 3" (click)="showContent(3)">Classement</ion-button>
+                <ion-button fill="clear"[class.active]="activeOption === 4" (click)="activeOption = 4" (click)="showContent(4)">Forum</ion-button>
+              </div>
+            </ion-card>
+          </div>
+        </div>
+        <!-- <div class = "img-select">
+          <div class = "img-item">
+            <a href = "#" data-id = "1">
+              <img src = "../../assets/mobile.jpg" alt = "shoe image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "2">
+              <img src = "../../assets/mobile.jpg" alt = "shoe image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "3">
+              <img src = "../../assets/mobile.jpg" alt = "shoe image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "4">
+              <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+            </a>
+          </div>
+        </div> -->
+      </div>
+      <!-- card right -->
+      <div class="product-content" style="margin-top: 2%;"  *ngIf="content === 1">
+        <div class="product-detail">
+          <h2>Description et critères: </h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+          <ul>
+            <li>Critere 1: <span>Black</span></li>
+            <li>Critere 2: <span>in stock</span></li>
+            <li>Critere 3: <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi sit modi quidem,
+                repellendus tenetur cupiditate fuga placeat ab cum totam, ex, non ipsam fugiat recusandae dolorum
+                voluptate sunt eum assumenda!</span></li>
+            <li>Critere 4: <span>All over the world</span></li>
+            <li>Critere 5: <span>Free</span></li>
+          </ul>
+        </div>
 
-    <ion-grid style="width: 99%; margin-left: auto; margin-right: auto; border-bottom: 1px solid #5260FF;">
-      <ion-row>
-        <ion-col size="auto"  style="border-right:1px solid #5260FF ;">
-          <div style="width: 150px">2</div>
-        </ion-col>
-        <ion-col class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita odio iure, vitae, sed ab deserunt eaque adipisci accusamus similique sunt, odit sit? Doloremque nulla necessitatibus ipsa cum tempora. Quidem, aspernatur.</ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-grid style="width: 99%; margin-left: auto; margin-right: auto; border-bottom: 1px solid #5260FF;">
-      <ion-row>
-        <ion-col size="auto"  style="border-right:1px solid #5260FF ;">
-          <div style="width: 150px">2</div>
-        </ion-col>
-        <ion-col class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita odio iure, vitae, sed ab deserunt eaque adipisci accusamus similique sunt, odit sit? Doloremque nulla necessitatibus ipsa cum tempora. Quidem, aspernatur.</ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-grid style="width: 99%; margin-left: auto; margin-right: auto; border-bottom: 1px solid #5260FF;">
-      <ion-row>
-        <ion-col size="auto"  style="border-right:1px solid #5260FF ;">
-          <div style="width: 150px">2</div>
-        </ion-col>
-        <ion-col class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita odio iure, vitae, sed ab deserunt eaque adipisci accusamus similique sunt, odit sit? Doloremque nulla necessitatibus ipsa cum tempora. Quidem, aspernatur.</ion-col>
-      </ion-row>
-    </ion-grid>
+        <div class="purchase-info">
+
+          <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;">
+            Participer <i class="fas fa-plus" style="color: white;"></i>
+          </button>
+        </div>
+
+        <div class="social-links">
+          <i class="fas fa-calendar"></i>
+          <p>&nbsp;Date de debut:&nbsp; </p>
+          <span>23-05-2023</span>
+        </div>
+        <div class="social-links">
+          <i class="fas fa-calendar"></i>
+          <p>&nbsp;Date de fin: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>
+          <span>31-05-2023</span>
+        </div>
+      </div>
+      <div class="tous" style="margin-top: 2%;"  *ngIf="content === 4">
+
+        <div class="mesquestions">
+          <div class="question">
+            <img src="../../assets/mobile.jpg" alt="">
+            <span>Mamady Camara</span>
+            <span class="mesnombres">2000</span>
+          </div>
+          <p>comment faire ce challenge
+            comment faire ce challenge </p>
+          <hr style="height: 2px; background-color: #707070;">
+        </div>
+        <div class="mesquestions">
+          <div class="question">
+            <img src="../../assets/mobile.jpg" alt="">
+            <span>Mamady Camara</span>
+            <span class="mesnombres">2000</span>
+          </div>
+          <p>comment faire ce challenge
+            comment faire ce challenge </p>
+          <hr style="height: 2px; background-color: #707070;">
+        </div>
+        <div class="mesquestions">
+          <div class="question">
+            <img src="../../assets/mobile.jpg" alt="">
+            <span>Mamady Camara</span>
+            <span class="mesnombres">2000</span>
+          </div>
+          <p>comment faire ce challenge
+            comment faire ce challenge </p>
+          <hr style="height: 2px; background-color: #707070;">
+        </div>
+        <div class="mesquestions">
+          <div class="question">
+            <img src="../../assets/mobile.jpg" alt="">
+            <span>Mamady Camara</span>
+            <span class="mesnombres">2000</span>
+          </div>
+          <p>comment faire ce challenge
+            comment faire ce challenge </p>
+          <hr style="height: 2px; background-color: #707070;">
+        </div>
+        <h1 style="height: 2px;"></h1>
+      </div>
+      <ion-grid style="margin-top: 2%;"  *ngIf="content === 3">
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-header style="border: solid 0.002em #FFF;">
+                <ion-card-title style="background-color: #707070;">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col style="  width:15%">N°</ion-col>
+                      <ion-col style=" width:43%">Equipe</ion-col>
+                      <ion-col style=" width:42%">Points</ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content style="color: #707070;">
+                <ion-grid>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style="width:15%">1</ion-col>
+                    <ion-col style="width:43%">equipe1</ion-col>
+                    <ion-col style="width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid style="margin-top: 2%;" *ngIf="content === 2">
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-header style="border: solid 0.002em #FFF;">
+                <ion-card-title style="background-color: #707070;">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col style="  width:15%">N°</ion-col>
+                      <ion-col style=" width:43%">Equipe</ion-col>
+                      <ion-col style=" width:42%">Code</ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content style="color: #707070;">
+                <ion-grid>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style="width:15%">1</ion-col>
+                    <ion-col style="width:43%">equipe1</ion-col>
+                    <ion-col style="width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                  <ion-row style="border-bottom: solid 0.002em #707070;">
+                    <ion-col style=" width:15%">1</ion-col>
+                    <ion-col style=" width:43%">equipe1</ion-col>
+                    <ion-col style=" width:42%">10000</ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
+
 
 </ion-content>

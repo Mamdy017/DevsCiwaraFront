@@ -8,7 +8,15 @@ import { AfficherService } from '../Services/afficher.service';
 })
 export class AvenirPage {
 
+  content: number = 1;
+  activeOption = 1;
+
+  showContent(opt: number) {
+    this.content = opt;
+}
+
   constructor( private serviceAfficher:AfficherService) { }
+
 
   challenge:any;
   ngOnInit() {
@@ -16,5 +24,12 @@ export class AvenirPage {
       this.challenge = data;
       console.table(this.challenge);
     });
-  }
+  // }
+  // ngDoCheck() {
+  //   if (this.data !== this.previousData) {
+  //       this.previousData = this.data;
+  //       // Traitement des données
+  //   }
+}
+
 }

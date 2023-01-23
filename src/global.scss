@@ -26,14 +26,14 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .navMenu1 {
   width: 90% !important;
   margin-left: auto;
   margin-right: auto;
-}
-
-* {
-  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -195,3 +195,5 @@ ion-button {
   // }
 
 }
+
+

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AfficherService } from '../Services/afficher.service';
-
+import Swiper from 'swiper';
 @Component({
   selector: 'app-accueil',
   templateUrl: 'accueil.page.html',
@@ -11,9 +11,43 @@ export class AccueilPage {
 
   challenge:any;
   ngOnInit() {
+
+    const swiper = new Swiper('.slide-content', {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centeredSlides: true,
+      fadeEffect: {
+        crossFade: true
+      },
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1
+        },
+        520: {
+          slidesPerView: 2
+        },
+        950: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+
+
     this.serviceAfficher.afficherChallengeDecroissant().subscribe(data => {
       this.challenge = data;
-     
+
     });
   }
   options={

@@ -27,7 +27,7 @@ export class ConxexionPage implements OnInit {
   username: any;
 
   eventBusService: any;
-  
+
   roles: string[] = [];
   modal: any;
   constructor( private connexion: ConnexionService,
@@ -50,7 +50,7 @@ export class ConxexionPage implements OnInit {
         this.storage.connexionReussi();
 
         this.roles = this.storage.recupererUser().roles;
-        //this.reloadPage();
+        // this.reloadPage();
         this.router.navigateByUrl("/sidebar/board")
       },
       error: err => {

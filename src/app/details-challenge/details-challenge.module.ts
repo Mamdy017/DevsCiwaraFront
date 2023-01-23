@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import Swiper from 'swiper';
+
 
 import { DetailsChallengePageRoutingModule } from './details-challenge-routing.module';
 
@@ -13,7 +15,8 @@ import { DetailsChallengePage } from './details-challenge.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailsChallengePageRoutingModule
+    DetailsChallengePageRoutingModule,
+    
   ],
   declarations: [DetailsChallengePage]
 })
