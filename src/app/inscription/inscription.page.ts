@@ -39,4 +39,9 @@ export class InscriptionPage implements OnInit {
       }
     });
   }
+  type = true;
+  changeType() {
+      this.type = !this.type;
+    }
+  
 }

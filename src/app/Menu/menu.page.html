@@ -1,32 +1,31 @@
 <ion-menu contentId="main-content">
   <ion-header>
-    <ion-toolbar color="tertiary">
+    <ion-toolbar color="#5469d4">
       <ion-title>Mon profile</ion-title>
     </ion-toolbar>
+    
   </ion-header>
+  <style>
+    ion-content::-webkit-scrollbar {
+  display: none;
+}
+  </style>
   <ion-content>
     <div *ngIf="!isLoggedIn">
       <ion-button class="" id="open-custom-dialog" expand="block"
-        style="background-color:#707070;border-radius: 12px; color:white;" (click)="openModal()">Se
+        style="background-color:#707070;border-radius: 12px; color:white; background-color: #5469d4 !important;" (click)="openModal()">Se
         connecter</ion-button>
-      <ion-button class="" id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
+      <ion-button expand="block"
+      style="background-color:#707070;border-radius: 12px; color:white;" id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
     </div>
     <div *ngIf="isLoggedIn" class="nav-item  dropdown">
       <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-        <div class="card p-4">
-          <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
-              class="btn btn-secondary"> <img src="{{currentUser.profile}}" height="100" width="100" /></button>
+        <div class="card p-4" >
+          <div class=" image d-flex flex-column justify-content-center align-items-center" style="margin-left: 5% !important;"> <button
+              class="btn btn-secondary" style="margin-left: 15% !important;"> <img src="{{currentUser.profile}}" height="100" width="100" /></button>
             <span class="name mt-3">{{currentUser.username}}</span> <span class="idd">{{currentUser.email}}</span>
-
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">12000<span
-                  class="follow">Points</span></span> </div>
             <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Modifier profile</button> </div>
-            <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital
-                artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
-            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
-                  class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
-                  class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
-            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+            
           </div>
         </div>
       </div>
@@ -91,12 +90,12 @@
           <ion-label>Speakers</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="details">
+        <ion-tab-button tab="encours">
           <ion-icon name="map"></ion-icon>
           <ion-label>Forum</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="challenge">
+        <ion-tab-button tab="avenir">
           <ion-icon name="information-circle"></ion-icon>
           <ion-label>Challenge</ion-label>
         </ion-tab-button>

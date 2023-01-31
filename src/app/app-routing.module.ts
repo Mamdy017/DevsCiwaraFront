@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AwaitComponent } from './await/await.component';
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo:"await",
+    pathMatch:'full'
+  },
+  {
     path: '',
     loadChildren: () => import('./Menu/menu.module').then(m => m.MenuPageModule)
-  },  {
+  },
+  {
     path: 'conxexion',
     loadChildren: () => import('./conxexion/conxexion.module').then( m => m.ConxexionPageModule)
   },
@@ -20,6 +27,11 @@ const routes: Routes = [
   {
     path: 'new-password',
     loadChildren: () => import('./new-password/new-password.module').then( m => m.NewPasswordPageModule)
+  }
+  ,
+  {
+    path: 'await',
+   component:AwaitComponent
   }
 
 ];

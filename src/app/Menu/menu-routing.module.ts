@@ -24,13 +24,17 @@ const routes: Routes = [
         loadChildren: () => import('../challenge/challenge.module').then( m => m.ChallengePageModule)
       },
       {
-        path: 'details',
+        path: 'details/:idChallenge',
         loadChildren: () => import('../details-challenge/details-challenge.module').then( m => m.DetailsChallengePageModule)
       },
 
       {
         path: 'encours',
         loadChildren: () => import('../encours/encours.module').then( m => m.EncoursPageModule)
+      },
+      {
+        path: 'connexion',
+        loadChildren: () => import('../conxexion/conxexion.module').then( m => m.ConxexionPageModule)
       },
       {
         path: '',

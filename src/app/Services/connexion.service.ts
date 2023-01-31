@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-
-const env = environment.AUTH_API;
+// import { AUTH_APIironment } from 'src/AUTH_APIironments/AUTH_APIironment';
+const AUTH_API = 'http://localhost:8080/api/auth/';
+// const AUTH_API = AUTH_APIironment.AUTH_API;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,7 +17,7 @@ export class ConnexionService {
 
   login(usernameOrEmail: string, password: string): Observable<any> {
     return this.http.post(
-      env + '/connexion',
+     `http://localhost:8080/devs/auth/connexion`,
       {
         usernameOrEmail,
         password,
@@ -27,8 +27,7 @@ export class ConnexionService {
   }
 
   inscription(nom: string, prenom: string, username:string,email:string, password: string): Observable<any> {
-    return this.http.post(
-      env + '/inscription',
+    return this.http.post(`http://localhost:8080/devs/auth/inscription`,
       {
         nom,
         prenom,
@@ -54,7 +53,7 @@ export class ConnexionService {
 
   // newPassword(emailOrNumero: string, currentpassword: string, newPassword:string,confirmpassword:string): Observable<any> {
   //   return this.http.post(
-  //     env + '/utilisateur/changePassword',
+  //     AUTH_API + '/utilisateur/changePassword',
   //     {
   //       emailOrNumero,
   //       currentpassword,
@@ -68,7 +67,7 @@ export class ConnexionService {
   
   forGotPassword(email:string): Observable<any> {
     return this.http.post(
-      env + `/utilisateur/resetPassword/${email}`,
+     `http://localhost:8080/devs/auth/utilisateur/resetPassword/${email}`,
       {
        
         email,
@@ -79,7 +78,7 @@ export class ConnexionService {
   }
 
   logout(): Observable<any> {
-    const req = new HttpRequest('POST', env + 'signout', {}, httpOptions);
+    const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
     return this.http.request(req);
   }
 }

@@ -12,11 +12,16 @@ ion-content {
   }
 
 }
-.slider {
-  display: flex;
-  flex-wrap: wrap;
-}
-
+// .slider {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+// @media (max-width: 767px) {
+//   .moi .slider {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr) !important;
+//   }
+// }
 .my-radio-list {
   position: fixed;
   top: 0;

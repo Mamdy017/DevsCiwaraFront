@@ -6,12 +6,12 @@
         <div class="img-display">
           <div class="img-showcase">
 
-            <ion-card
-              [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/mobile.jpg)'}"
-              style="object-fit: fill;">
+            <ion-card [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'' + photo + '\')',
+            'background-repeat': 'no-repeat',
+            'background-size': 'cover'}" style="object-fit: fill;">
               <ion-card-header>
-                <ion-card-title class="moi2"> cool</ion-card-title>
-                <ion-card-subtitle class="moi2">Categories:bien</ion-card-subtitle>
+                <ion-card-title class="moi2">{{titre}}</ion-card-title>
+                <ion-card-subtitle class="moi2">Categories:{{cate}}</ion-card-subtitle>
               </ion-card-header>
 
               <ion-card-content class="moi2">
@@ -19,72 +19,110 @@
               </ion-card-content>
               <div class="" style="display: flex; background-color: #5260FF;">
 
-                <ion-button fill="clear" [class.active]="activeOption === 1" (click)="activeOption = 1" (click)="showContent(1)">Détails</ion-button>
-                <ion-button fill="clear" [class.active]="activeOption === 2" (click)="activeOption = 2" (click)="showContent(2)">Code</ion-button>
-                <ion-button fill="clear"[class.active]="activeOption === 3" (click)="activeOption = 3" (click)="showContent(3)">Classement</ion-button>
-                <ion-button fill="clear"[class.active]="activeOption === 4" (click)="activeOption = 4" (click)="showContent(4)">Forum</ion-button>
+                <ion-button fill="clear" [class.active]="activeOption === 1" (click)="activeOption = 1"
+                  (click)="showContent(1)">Détails</ion-button>
+                <ion-button fill="clear" [class.active]="activeOption === 2" (click)="activeOption = 2"
+                  (click)="showContent(2)">Code</ion-button>
+                <ion-button fill="clear" [class.active]="activeOption === 3" (click)="activeOption = 3"
+                  (click)="showContent(3)">Classement</ion-button>
+                <ion-button fill="clear" [class.active]="activeOption === 4" (click)="activeOption = 4"
+                  (click)="showContent(4)">Forum</ion-button>
               </div>
             </ion-card>
           </div>
         </div>
-        <!-- <div class = "img-select">
-          <div class = "img-item">
-            <a href = "#" data-id = "1">
-              <img src = "../../assets/mobile.jpg" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "2">
-              <img src = "../../assets/mobile.jpg" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "3">
-              <img src = "../../assets/mobile.jpg" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "4">
-              <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
-            </a>
-          </div>
-        </div> -->
       </div>
       <!-- card right -->
-      <div class="product-content" style="margin-top: 2%;"  *ngIf="content === 1">
+      <div class="product-content" style="margin-top: 2%;" *ngIf="content === 1">
         <div class="product-detail">
           <h2>Description et critères: </h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
-          <ul>
-            <li>Critere 1: <span>Black</span></li>
-            <li>Critere 2: <span>in stock</span></li>
-            <li>Critere 3: <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi sit modi quidem,
-                repellendus tenetur cupiditate fuga placeat ab cum totam, ex, non ipsam fugiat recusandae dolorum
-                voluptate sunt eum assumenda!</span></li>
-            <li>Critere 4: <span>All over the world</span></li>
-            <li>Critere 5: <span>Free</span></li>
-          </ul>
+          <p>{{description}}</p>
+          <ion-accordion-group #accordionGroup *ngFor="let crite of critere">
+            <ion-accordion value="1">
+              <ion-item slot="header" color="light">
+                <ion-label>Critere 1</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">{{crite.critere}}</div>
+            </ion-accordion>
+            <ion-accordion value="2">
+              <ion-item slot="header">
+                <ion-label>Second Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Second Content</div>
+            </ion-accordion>
+
+            <ion-accordion value="3">
+              <ion-item slot="header">
+                <ion-label>Third Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Deleniti exercitationem doloremque
+                maxime maiores officiis iste laudantium rem voluptas, illum, vero
+                placeat, odio quasi dolores nam quas officia adipisci
+                eveniet possimus.</div>
+            </ion-accordion>
+            <ion-accordion value="4">
+              <ion-item slot="header">
+                <ion-label>Second Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Second Content</div>
+            </ion-accordion>
+          </ion-accordion-group>
+          <style>
+            ion-accordion {
+              border-radius: 15px !important;
+              background-color: white !important;
+              margin-bottom: 4%;
+              transition: all 0.3s ease-in-out;
+              box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            ion-accordion:hover {
+              box-shadow: 0px 0px 10px #5260FF;
+            }
+
+            ion-item {
+              background-color: inherit !important;
+            }
+
+            .ion-padding {
+              margin-left: 4% !important;
+            }
+          </style>
         </div>
 
         <div class="purchase-info">
 
-          <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;">
-            Participer <i class="fas fa-plus" style="color: white;"></i>
+          <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
+            id="open-modal" expand="block">
+            &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
           </button>
         </div>
+        <ion-modal #modal trigger="open-modal">
+
+          <ng-template>
+            <h1 slot="end" style="margin-left: 90%;" (click)="modal.dismiss()">X</h1>
+            <form action="" [formGroup]="equipe" (ngSubmit)=" onSubmitEquipe()">
+              <h1>vcvcvcv</h1>
+              <input type="text" name="nom" formControlName="nom" placeholder="moi" style="margin-bottom: 10%;">
+              <input type="submit" value="envoyer">
+            </form>
+          </ng-template>
+        </ion-modal>
+
 
         <div class="social-links">
           <i class="fas fa-calendar"></i>
           <p>&nbsp;Date de debut:&nbsp; </p>
-          <span>23-05-2023</span>
+          <span>{{datedebut | date: 'dd/MM/yyyy'}}</span>
         </div>
         <div class="social-links">
           <i class="fas fa-calendar"></i>
           <p>&nbsp;Date de fin: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>
-          <span>31-05-2023</span>
+          <span>{{datefin | date: 'dd/MM/yyyy'}}</span>
         </div>
       </div>
-      <div class="tous" style="margin-top: 2%;"  *ngIf="content === 4">
+      <div class="tous" style="margin-top: 2%;" *ngIf="content === 4">
 
         <div class="mesquestions">
           <div class="question">
@@ -128,58 +166,33 @@
         </div>
         <h1 style="height: 2px;"></h1>
       </div>
-      <ion-grid style="margin-top: 2%;"  *ngIf="content === 3">
-        <ion-row>
-          <ion-col>
-            <ion-card>
-              <ion-card-header style="border: solid 0.002em #FFF;">
-                <ion-card-title style="background-color: #707070;">
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col style="  width:15%">N°</ion-col>
-                      <ion-col style=" width:43%">Equipe</ion-col>
-                      <ion-col style=" width:42%">Points</ion-col>
-                    </ion-row>
-                  </ion-grid>
-                </ion-card-title>
-              </ion-card-header>
-              <ion-card-content style="color: #707070;">
-                <ion-grid>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style="width:15%">1</ion-col>
-                    <ion-col style="width:43%">equipe1</ion-col>
-                    <ion-col style="width:42%">10000</ion-col>
-                  </ion-row>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style=" width:15%">1</ion-col>
-                    <ion-col style=" width:43%">equipe1</ion-col>
-                    <ion-col style=" width:42%">10000</ion-col>
-                  </ion-row>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style=" width:15%">1</ion-col>
-                    <ion-col style=" width:43%">equipe1</ion-col>
-                    <ion-col style=" width:42%">10000</ion-col>
-                  </ion-row>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style=" width:15%">1</ion-col>
-                    <ion-col style=" width:43%">equipe1</ion-col>
-                    <ion-col style=" width:42%">10000</ion-col>
-                  </ion-row>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style=" width:15%">1</ion-col>
-                    <ion-col style=" width:43%">equipe1</ion-col>
-                    <ion-col style=" width:42%">10000</ion-col>
-                  </ion-row>
-                  <ion-row style="border-bottom: solid 0.002em #707070;">
-                    <ion-col style=" width:15%">1</ion-col>
-                    <ion-col style=" width:43%">equipe1</ion-col>
-                    <ion-col style=" width:42%">10000</ion-col>
-                  </ion-row>
-                </ion-grid>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
+      <ion-grid style="margin-top: 5%;" *ngIf="content === 3">
+        <div class="monLabel">
+          <div class="social-media" style="display: flex;justify-content: space-around;">
+            <a href="#">N° 12</a>
+            <span>Equipe1</span>
+            <span>100</span>
+          </div>
+        </div>
+        <div class="monLabel">
+          <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+        </div>
+        <div class="monLabel">
+
+          <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+        </div>
+        <div class="monLabel">
+
+          <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+        </div>
+        <div class="monLabel">
+
+          <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i
+                class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+        </div>
       </ion-grid>
       <ion-grid style="margin-top: 2%;" *ngIf="content === 2">
         <ion-row>
@@ -236,6 +249,138 @@
       </ion-grid>
     </div>
   </div>
+
+  <style>
+    .active {
+      /* background-color: #5260FF; */
+      color: #5260FF;
+      font-size: 12px;
+      height: 35px;
+      width: 95px;
+      background-color: white;
+      border-top: 1px solid #707070;
+      border-right: 1px solid #707070;
+      border-left: 1px solid #707070;
+      border-radius: 3px;
+      justify-content: center !important;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      background-color: #FFF;
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+    }
+
+    .social-media::after {
+      background-color: blue;
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-media:hover {
+      background-color: #707070;
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.549);
+      margin-bottom: 2%;
+
+    }
+
+    a {
+      position: relative;
+      background-color: #E6E7E8;
+      margin: 10px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px 0px #BFBFBF;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 25px;
+    }
+
+    a::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 0.5s ease-in-out;
+    }
+
+    a:nth-child(1):hover::before {
+      transform: scale(1);
+      background-color: #3b5998;
+    }
+
+    a:nth-child(1) {
+      color: #3b5998;
+    }
+
+    a:nth-child(1):hover {
+      color: #E6E7E8;
+    }
+
+    a:nth-child(2):hover::before {
+      transform: scale(1);
+      background-color: #f2003c;
+      width: 80%;
+      height: 80%;
+    }
+
+    a:nth-child(2) {
+      color: #f2003c;
+    }
+
+    a:nth-child(2):hover {
+      color: #E6E7E8;
+    }
+
+    a:nth-child(3):hover::before {
+      transform: scale(1);
+      background-color: #0e76a8;
+    }
+
+    a:nth-child(3) {
+      color: #0e76a8;
+    }
+
+    a:nth-child(3):hover {
+      color: #E6E7E8;
+    }
+
+    a:nth-child(4):hover::before {
+      width: 80%;
+      height: 80%;
+      transform: scale(1);
+      background-color: #00acee;
+    }
+
+    a:nth-child(4) {
+      color: #00acee;
+    }
+
+    a:nth-child(4):hover {
+      color: #E6E7E8;
+    }
+
+    .monLabel {
+      display: block !important;
+      margin-bottom: 5%;
+    }
+  </style>
 
 
 </ion-content>

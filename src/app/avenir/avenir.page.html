@@ -11,169 +11,79 @@
     </ion-list>
     <div class="inner-part">
       <div class="content content-1" *ngIf="content === 1">
-        <span>26 December 2017</span>
+        <span>Les challenges terminer</span>
         <div class="moi">
-          <div class="slider owl-carousel">
+          <div class="slider owl-carousel" *ngFor="let terminer of challengeTerminer">
             <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="img"><img src="{{terminer.photo}}" style="height: 100px !important;" alt=""></div>
               <div class="content1">
-                <div class="title">Briana Tozour</div>
-                <div class="sub-title">Graphic Designer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="title">{{terminer.titre}}</div>
+                <div class="sub-title">{{terminer.cate[0].nom}}</div>
+                <p>{{terminer.description}}</p>
                 <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Eliana Maia</div>
-                <div class="sub-title">App Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
+                  <button [routerLink]="['/menu/details',terminer.id]" style="margin-left: 20% !important; font-size: 1.2em;">Savoir
+                    plus...</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="text btn">
-             <button routerLink="/menu/details">Savoir plus...</button>
+            <button routerLink="/menu/details">Savoir plus...</button>
           </div>
           <hr>
         </div>
+        <style>
+          .moi {
+            width: 100% !important;
+
+          }
+
+          .slider {
+            width: 100% !important;
+          }
+        </style>
       </div>
       <div class="content content-2" *ngIf="content === 2">
-        <span>26 December 2018</span>
+        <span>Les challenges encours</span>
         <div class="moi">
-          <div class="slider owl-carousel">
+          <div class="slider owl-carousel"  *ngFor="let encours of challengeEncours">
             <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="img"><img src="{{encours.photo}}" style="height: 100px !important;" alt=""></div>
               <div class="content1">
-                <div class="title">Briana Tozour</div>
-                <div class="sub-title">Graphic Designer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="title">{{encours.titre}}</div>
+                <div class="sub-title">{{encours.cate[0].nom}}</div>
+                <p>{{encours.description}}</p>
                 <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Eliana Maia</div>
-                <div class="sub-title">App Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                  <button routerLink="/menu/details">Savoir plus...</button>
+                  <button [routerLink]="['/menu/details',encours.id]" style="margin-left: 20% !important; font-size: 1.2em;">Savoir
+                    plus...</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="text btn">
-             <button routerLink="/menu/details">Savoir plus...</button>
+            <button routerLink="/menu/details">Savoir plus...</button>
           </div>
           <hr>
         </div>
       </div>
       <div class="content content-3" *ngIf="content === 3">
-        <span>26 December 2019</span>
+        <span>Les challenges à venir</span>
         <div class="moi">
-          <div class="slider owl-carousel">
+          <div class="slider owl-carousel" *ngFor="let avenir of challengeAvenir">
             <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
+              <div class="img"><img src="{{avenir.photo}}" style="height: 100px !important;" alt=""></div>
               <div class="content1">
-                <div class="title">Briana Tozour</div>
-                <div class="sub-title">Graphic Designer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet,.</p>
+                <div class="title">{{avenir.titre}}</div>
+                <div class="sub-title">{{avenir.cate[0].nom}}</div>
+                <p>{{avenir.description}}</p>
                 <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Pricilla Preez</div>
-                <div class="sub-title">Web Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="img"><img src="../../assets/mobile.jpg" alt=""></div>
-              <div class="content1">
-                <div class="title">Eliana Maia</div>
-                <div class="sub-title">App Developer</div>
-                <p>Lorem ipsum Lorem ipsum dolor sit amet, .</p>
-                <div class="btn">
-                   <button routerLink="/menu/details">Savoir plus...</button>
+                  <button [routerLink]="['/menu/details',avenir.id]"  style="margin-left: 20% !important; font-size: 1.2em;">Savoir plus...</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="text btn">
-             <button routerLink="/menu/details">Savoir plus...</button>
+            <button routerLink="/menu/details">Savoir plus...</button>
           </div>
           <hr>
         </div>

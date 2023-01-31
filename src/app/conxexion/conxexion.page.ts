@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
+import { InscriptionPage } from '../inscription/inscription.page';
 import { ConnexionService } from '../Services/connexion.service';
 import { StorageService } from '../Services/storage.service';
 @Component({
@@ -30,9 +31,9 @@ export class ConxexionPage implements OnInit {
 
   roles: string[] = [];
   modal: any;
-  constructor( private connexion: ConnexionService,
+  constructor(private connexion: ConnexionService,
     private storage: StorageService,
-    private router: Router,private modalCtrl: ModalController) { }
+    private router: Router, private modalCtrl: ModalController) { }
 
 
   ngOnInit() {
@@ -68,6 +69,17 @@ export class ConxexionPage implements OnInit {
       component: ForgotPasswordPage
     });
     return await modal.present();
+  }
+  async openModalIn() {
+    const modal = await this.modalCtrl.create({
+      component: InscriptionPage
+    });
+    return await modal.present();
+  }
+
+  type = true;
+  changeType() {
+    this.type = !this.type;
   }
 
 }
