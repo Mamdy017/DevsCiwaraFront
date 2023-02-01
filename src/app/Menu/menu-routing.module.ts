@@ -24,7 +24,7 @@ const routes: Routes = [
         loadChildren: () => import('../challenge/challenge.module').then( m => m.ChallengePageModule)
       },
       {
-        path: 'details/:idChallenge',
+        path: 'details/:idChallenge1',
         loadChildren: () => import('../details-challenge/details-challenge.module').then( m => m.DetailsChallengePageModule)
       },
 

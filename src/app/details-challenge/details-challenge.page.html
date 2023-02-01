@@ -101,11 +101,13 @@
         <ion-modal #modal trigger="open-modal">
 
           <ng-template>
-            <h1 slot="end" style="margin-left: 90%;" (click)="modal.dismiss()">X</h1>
-            <form action="" [formGroup]="equipe" (ngSubmit)=" onSubmitEquipe()">
-              <h1>vcvcvcv</h1>
-              <input type="text" name="nom" formControlName="nom" placeholder="moi" style="margin-bottom: 10%;">
-              <input type="submit" value="envoyer">
+            <h1 slot="end" style="margin-left: 90%; cursor: pointer;"  (click)="modal.dismiss()">x</h1>
+            <form [formGroup]="equipe" style=" margin-top: 40px !important; position: absolute;" (ngSubmit)=" onSubmitEquipe()">
+              <h1 style="font-size: 1.2em; margin-bottom: 3%; margin-left: 5% !important;">Créer votre équipe</h1>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <input type="text" name="nom" formControlName="nom" placeholder="Nom de l'équipe" style="margin-bottom: 10%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;">
+                <button type="submit" style="background-color: #5260FF; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 90%;">Envoyer</button>
+              </div>
             </form>
           </ng-template>
         </ion-modal>
