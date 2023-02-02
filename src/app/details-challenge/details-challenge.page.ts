@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -36,10 +37,19 @@ private route: Router,
 private routes: ActivatedRoute,
 private serviceAfficher: AfficherService,
 private serviceAjouter: AjouterServiceService,
-private storage: StorageService,
+private storage: StorageService,private http: HttpClient
 ) {}
+form !:FormGroup
+
 
 ngOnInit() {
+
+this.form = new FormGroup({
+  lienGithub: new FormControl('', Validators.required),
+  point: new FormControl('', Validators.required),
+  source: new FormControl('', Validators.required),
+  fileSource: new FormControl('', [Validators.required])
+});
 this.currentUser = this.storage.recupererUser();
 console.table(this.currentUser);
 var moi = this.currentUser.id;
@@ -87,4 +97,37 @@ onSubmitEquipe() {
     this.equipe.reset();
   });
 
-}}
+}
+uploadFilec(files: FileList) {
+  this.form.value.source.setValue(files.item(0));
+}
+uploadFile(event: any) {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+
+    this.form.patchValue({
+      fileSource: file
+
+    });
+  }
+}
+submit() {
+  const formData = new FormData();
+  formData.append('lienGithub', this.form.value.lienGithub);
+  formData.append('source', this.form.value.fileSource, this.form.value.fileSource.name);
+  formData.append('point', this.form.value.point);
+console.log("hfhfh"+this.form.value.fileSource.name )
+  this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/2/3/1`, formData)
+    .subscribe(
+      (res) => console.log(res),
+      (err) => console.error(err)
+    );
+}
+
+
+
+}
+function saveAs(body: any, fileName: string) {
+  throw new Error('Function not implemented.');
+}
+

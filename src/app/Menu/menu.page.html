@@ -3,29 +3,32 @@
     <ion-toolbar color="#5469d4">
       <ion-title>Mon profile</ion-title>
     </ion-toolbar>
-    
+
   </ion-header>
   <style>
     ion-content::-webkit-scrollbar {
-  display: none;
-}
+      display: none;
+    }
+
   </style>
   <ion-content>
     <div *ngIf="!isLoggedIn">
       <ion-button class="" id="open-custom-dialog" expand="block"
-        style="background-color:#707070;border-radius: 12px; color:white; background-color: #5469d4 !important;" (click)="openModal()">Se
+        style="background-color:#707070;border-radius: 12px; color:white; background-color: #5469d4 !important;"
+        (click)="openModal()">Se
         connecter</ion-button>
-      <ion-button expand="block"
-      style="background-color:#707070;border-radius: 12px; color:white;" id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
+      <ion-button expand="block" style="background-color:#707070;border-radius: 12px; color:white;"
+        id="open-custom-dialog1" (click)="openModal2()">S'inscrire</ion-button>
     </div>
     <div *ngIf="isLoggedIn" class="nav-item  dropdown">
       <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-        <div class="card p-4" >
-          <div class=" image d-flex flex-column justify-content-center align-items-center" style="margin-left: 5% !important;"> <button
-              class="btn btn-secondary" style="margin-left: 15% !important;"> <img src="{{currentUser.profile}}" height="100" width="100" /></button>
+        <div class="card p-4">
+          <div class=" image d-flex flex-column justify-content-center align-items-center"
+            style="margin-left: 5% !important;"> <button class="btn btn-secondary" style="margin-left: 15% !important;">
+              <img src="{{currentUser.profile}}" height="100" width="100" /></button>
             <span class="name mt-3">{{currentUser.username}}</span> <span class="idd">{{currentUser.email}}</span>
             <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Modifier profile</button> </div>
-            
+
           </div>
         </div>
       </div>
@@ -41,7 +44,7 @@
       </ion-buttons>
       <div class="row Rechercher">
         <div class="col-md-8 d-flex justify-content-center">
-          <a href="/menu/accueil" >Accueil</a>
+          <a href="/menu/accueil">Accueil</a>
           <a href="/menu/challenge">Challenge</a>
           <a href="/menu/forum">Forum</a>
           <!-- <a href="#about">About</a> -->
@@ -55,6 +58,7 @@
             text-decoration: none;
             font-size: 17px;
           }
+
         </style>
         <div class="col-md-4 py-2">
           <ion-searchbar color="light" placeholder="Rechercher..."></ion-searchbar>
@@ -78,28 +82,154 @@
   <ion-content class="ion-padding" color="dark">
     <!-- ========debut du tabs barre=== -->
     <ion-tabs class="tabs" color="tertiary">
-      <ion-tab-bar color="tertiary" slot="bottom">
-        <ion-tab-button tab="accueil">
+      <div class="moi">
+
+        <nav class="nav">
+          <ul class="nav-content">
+              <li class="nav-list">
+                  <a href="/menu/accueil" routerLink="" class="link-item active">
+                      <i class='bx bxs-home link-icon'></i>
+                      <span class="link-text">Home</span>
+                  </a>
+              </li>
+              <li class="nav-list">
+                  <a href="/menu/challenge" class="link-item">
+                      <i class='bx bxs-caret-right-square link-icon'></i>
+                      <span class="link-text">Content</span>
+                  </a>
+              </li>
+              <li class="nav-list">
+                  <a href="#" class="link-item">
+                      <i class='bx bxs-bar-chart-square link-icon'></i>
+                      <span class="link-text">Analytics</span>
+                  </a>
+              </li>
+              <li class="nav-list">
+                  <a href="#" class="link-item">
+                      <i class='bx bxs-message-rounded link-icon'></i>
+                      <span class="link-text">Comments</span>
+                  </a>
+              </li>
+              <li class="nav-list">
+                  <a href="#" class="link-item">
+                      <i class='bx bxs-user link-icon'></i>
+                      <span class="link-text">Profile</span>
+                  </a>
+              </li>
+
+              <span class="indicator"></span>
+          </ul>
+      </nav>
+      </div>
+      <!-- <ion-tab-bar color="tertiary" slot="bottom">
+        <ion-tab-button tab="accueil" style="background-color: red; --radius-size: 25px;  border-radius: 0 var(--radius-size) var(--radius-size) 0;">
           <ion-icon name="home-outline"></ion-icon>
           <ion-label>Accueil</ion-label>
-
         </ion-tab-button>
-
         <ion-tab-button tab="terminer">
           <ion-icon name="person-circle"></ion-icon>
           <ion-label>Speakers</ion-label>
         </ion-tab-button>
-
         <ion-tab-button tab="encours">
           <ion-icon name="map"></ion-icon>
           <ion-label>Forum</ion-label>
         </ion-tab-button>
-
         <ion-tab-button tab="avenir">
           <ion-icon name="information-circle"></ion-icon>
           <ion-label>Challenge</ion-label>
         </ion-tab-button>
-      </ion-tab-bar>
+      </ion-tab-bar> -->
     </ion-tabs>
   </ion-content>
 </div>
+<style>
+.moi{
+  background-color: #5469d4;
+
+}
+
+nav{
+    border-radius: 12px;
+    background: #FFF;
+    padding: 0 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    height: 100%!important;
+}
+.nav-content{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    list-style: none;
+    position: relative;
+
+}
+.link-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 120px;
+    width: 95px;
+    text-decoration: none;
+    margin-left: -50%;
+    margin-top: 25%;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.link-item.active{
+    transform: translateY(-10px);
+}
+.link-icon{
+    font-size: 28px;
+    color: #707070;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.link-item.active .link-icon{
+    color: #5469d4;
+
+}
+.link-text{
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5469d4;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.link-item.active .link-text{
+    opacity: 1;
+}
+.indicator{
+    position: absolute;
+    top: -15px;
+    left: 48px;
+    height: 36px;
+    width: 36px;
+    background-color: #FFF;
+    border: 6px solid #5469d4;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.indicator::before,
+.indicator::after{
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    height: 24px;
+    width: 19px;
+}
+.indicator::before{
+    left: -22px;
+    background-color: #FFF;
+    border-top-right-radius: 25px;
+    box-shadow: 1px -13px #5469d4;
+}
+.indicator::after{
+    right: -22px;
+    background-color: #FFF;
+    border-top-left-radius: 25px;
+    box-shadow: -1px -13px #5469d4;
+}
+</style>

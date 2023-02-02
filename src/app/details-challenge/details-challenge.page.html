@@ -97,9 +97,12 @@
             id="open-modal" expand="block">
             &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
           </button>
+              <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
+            id="open-modal2" expand="block">
+            &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
+          </button>
         </div>
         <ion-modal #modal trigger="open-modal">
-
           <ng-template>
             <h1 slot="end" style="margin-left: 90%; cursor: pointer;"  (click)="modal.dismiss()">x</h1>
             <form [formGroup]="equipe" style=" margin-top: 40px !important; position: absolute;" (ngSubmit)=" onSubmitEquipe()">
@@ -111,6 +114,37 @@
             </form>
           </ng-template>
         </ion-modal>
+
+        <ion-modal #modal trigger="open-modal2">
+<!--
+          <ng-template>
+            <h1 slot="end" style="margin-left: 90%; cursor: pointer;"  (click)="modal.dismiss()">x</h1>
+            <form [formGroup]="solution" style=" margin-top: 40px !important; position: absolute;" (ngSubmit)="onSubmit()">
+              <h1 style="font-size: 1.2em; margin-bottom: 3%; margin-left: 5% !important;">Solution</h1>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <input type="text" name="source" formControlName="source" placeholder="Nom de l'équipe" style="margin-bottom: 10%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;">
+                <input type="text" name="lien" formControlName="lien" placeholder="Nom de l'équipe" style="margin-bottom: 10%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;" (change)="onFileS($event)">
+                <button type="submit" style="background-color: #5260FF; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 90%;">Envoyer</button>
+              </div>
+            </form>
+          </ng-template> -->
+
+        </ion-modal>
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label for="lienGithub">Lien Github</label>
+            <input type="text" formControlName="lienGithub" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="point">Point</label>
+            <input type="text" formControlName="point" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="source">Source</label>
+            <input type="file" formControlName="source" class="form-control" (change)="uploadFile($event)">
+          </div>
+          <button type="submit" class="btn btn-primary"  (click)="submit()">Submit</button>
+        </form>
 
 
         <div class="social-links">

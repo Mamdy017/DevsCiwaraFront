@@ -14,4 +14,8 @@ export class AjouterServiceService {
     return this.http.post(`http://localhost:8080/devs/auth/team/teams/${creatorId}/${challengeId}`, body);
   }
 
+  AjouterS(formData:FormData): Observable<any> {
+    return this.http.post(`http://localhost:8080/devs/auth/solution/ajout/2/5/2`, formData);
+  }
+
 }
