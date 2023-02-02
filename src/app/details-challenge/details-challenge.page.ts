@@ -13,6 +13,7 @@ templateUrl: './details-challenge.page.html',
 styleUrls: ['./details-challenge.page.scss'],
 })
 export class DetailsChallengePage implements OnInit {
+  type = 'deposit';
 equipe!: FormGroup;
 content = 1;
 activeOption = 1;
@@ -55,7 +56,7 @@ console.table(this.currentUser);
 var moi = this.currentUser.id;
 this.idChallenge1 = this.routes.snapshot.params['idChallenge1'];
 
-this.serviceAfficher.afficherParIdChallenge(this.idChallenge).subscribe(data => {
+this.serviceAfficher.afficherParIdChallenge(this.idChallenge1).subscribe(data => {
   this.idChallenge = data;
   this.titre = data.titre;
   this.description = data.description;
@@ -63,8 +64,9 @@ this.serviceAfficher.afficherParIdChallenge(this.idChallenge).subscribe(data => 
   this.cate = data.cate[0].nom;
   this.photo = data.photo;
   this.datedebut = data.datedebut;
+
 });
-this.serviceAfficher.afficherCritereParIdChallenge(this.idChallenge).subscribe(data => {
+this.serviceAfficher.afficherCritereParIdChallenge(this.idChallenge1).subscribe(data => {
   this.critere = data;
 });
 
@@ -117,7 +119,7 @@ submit() {
   formData.append('source', this.form.value.fileSource, this.form.value.fileSource.name);
   formData.append('point', this.form.value.point);
 console.log("hfhfh"+this.form.value.fileSource.name )
-  this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/2/3/1`, formData)
+  this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/7/10/6`, formData)
     .subscribe(
       (res) => console.log(res),
       (err) => console.error(err)
@@ -125,6 +127,9 @@ console.log("hfhfh"+this.form.value.fileSource.name )
 }
 
 
+segmentChanged(ev: any) {
+  console.log('Segment changed', ev);
+}
 
 }
 function saveAs(body: any, fileName: string) {

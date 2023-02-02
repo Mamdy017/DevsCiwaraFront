@@ -9,7 +9,6 @@
     ion-content::-webkit-scrollbar {
       display: none;
     }
-
   </style>
   <ion-content>
     <div *ngIf="!isLoggedIn">
@@ -39,7 +38,7 @@
   <ion-header>
     <ion-toolbar color="white">
       <ion-buttons slot="start">
-        <ion-menu-button class="men"></ion-menu-button>
+        <ion-menu-button class="men"><ion-icon name="person-circle"></ion-icon></ion-menu-button>
         <img src="../../assets/lol.png" class="logo logo2" alt="">
       </ion-buttons>
       <div class="row Rechercher">
@@ -58,7 +57,6 @@
             text-decoration: none;
             font-size: 17px;
           }
-
         </style>
         <div class="col-md-4 py-2">
           <ion-searchbar color="light" placeholder="Rechercher..."></ion-searchbar>
@@ -82,7 +80,7 @@
   <ion-content class="ion-padding" color="dark">
     <!-- ========debut du tabs barre=== -->
     <ion-tabs class="tabs" color="tertiary">
-      <div class="moi">
+      <!-- <div class="moi">
 
         <nav class="nav">
           <ul class="nav-content">
@@ -120,10 +118,11 @@
               <span class="indicator"></span>
           </ul>
       </nav>
-      </div>
-      <!-- <ion-tab-bar color="tertiary" slot="bottom">
-        <ion-tab-button tab="accueil" style="background-color: red; --radius-size: 25px;  border-radius: 0 var(--radius-size) var(--radius-size) 0;">
-          <ion-icon name="home-outline"></ion-icon>
+      </div> -->
+      <ion-tab-bar color="tertiary" slot="bottom">
+        <ion-tab-button tab="accueil"
+          style="background-color: red; --radius-size: 25px;  border-radius: 0 var(--radius-size) var(--radius-size) 0;">
+          <ion-icon name="home-outline" sty></ion-icon>
           <ion-label>Accueil</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="terminer">
@@ -138,33 +137,35 @@
           <ion-icon name="information-circle"></ion-icon>
           <ion-label>Challenge</ion-label>
         </ion-tab-button>
-      </ion-tab-bar> -->
+      </ion-tab-bar>
     </ion-tabs>
   </ion-content>
 </div>
 <style>
-.moi{
-  background-color: #5469d4;
+  .moi {
+    background-color: #5469d4;
 
-}
+  }
 
-nav{
+  nav {
     border-radius: 12px;
     background: #FFF;
     padding: 0 25px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 0;
-    height: 100%!important;
-}
-.nav-content{
+    height: 100% !important;
+  }
+
+  .nav-content {
     display: flex;
     height: 50px;
     align-items: center;
     list-style: none;
     position: relative;
 
-}
-.link-item{
+  }
+
+  .link-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,20 +176,24 @@ nav{
     margin-left: -50%;
     margin-top: 25%;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.link-item.active{
+  }
+
+  .link-item.active {
     transform: translateY(-10px);
-}
-.link-icon{
+  }
+
+  .link-icon {
     font-size: 28px;
     color: #707070;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.link-item.active .link-icon{
+  }
+
+  .link-item.active .link-icon {
     color: #5469d4;
 
-}
-.link-text{
+  }
+
+  .link-text {
     position: absolute;
     font-size: 12px;
     font-weight: 500;
@@ -196,11 +201,13 @@ nav{
     opacity: 0;
     transform: translateY(32px);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.link-item.active .link-text{
+  }
+
+  .link-item.active .link-text {
     opacity: 1;
-}
-.indicator{
+  }
+
+  .indicator {
     position: absolute;
     top: -15px;
     left: 48px;
@@ -211,25 +218,28 @@ nav{
     border-radius: 50%;
     transform: translateX(-50%);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.indicator::before,
-.indicator::after{
+  }
+
+  .indicator::before,
+  .indicator::after {
     content: '';
     position: absolute;
     bottom: -8px;
     height: 24px;
     width: 19px;
-}
-.indicator::before{
+  }
+
+  .indicator::before {
     left: -22px;
     background-color: #FFF;
     border-top-right-radius: 25px;
     box-shadow: 1px -13px #5469d4;
-}
-.indicator::after{
+  }
+
+  .indicator::after {
     right: -22px;
     background-color: #FFF;
     border-top-left-radius: 25px;
     box-shadow: -1px -13px #5469d4;
-}
+  }
 </style>

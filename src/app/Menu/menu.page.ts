@@ -37,6 +37,7 @@ export class MenuPage {
     private router: Router,private modalCtrl: ModalController) { }
 
   ngOnInit(): void {
+  
     if (this.storage.connexionReussi()) {
       this.connexionReussi = true;
       this.roles = this.storage.recupererUser().roles;
@@ -76,7 +77,6 @@ export class MenuPage {
       next: res => {
         console.log(res);
         this.storage.clean();
-
         window.location.reload();
       },
       error: err => {
@@ -107,5 +107,11 @@ export class MenuPage {
     this.modalCtrl.dismiss();
     
   }
+  
 
 }
+
+function ionViewDidEnter() {
+  throw new Error('Function not implemented.');
+}
+
