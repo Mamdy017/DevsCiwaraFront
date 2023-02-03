@@ -77,9 +77,9 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding" color="dark">
+  <!-- <ion-content class="ion-padding" color="dark"> -->
     <!-- ========debut du tabs barre=== -->
-    <ion-tabs class="tabs" color="tertiary">
+    <!-- <ion-tabs class="tabs" color="tertiary"> -->
       <!-- <div class="moi">
 
         <nav class="nav">
@@ -119,7 +119,7 @@
           </ul>
       </nav>
       </div> -->
-      <ion-tab-bar color="tertiary" slot="bottom">
+      <!-- <ion-tab-bar color="tertiary" slot="bottom">
         <ion-tab-button tab="accueil"
           style="background-color: red; --radius-size: 25px;  border-radius: 0 var(--radius-size) var(--radius-size) 0;">
           <ion-icon name="home-outline" sty></ion-icon>
@@ -139,107 +139,37 @@
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
-  </ion-content>
+  </ion-content> -->
+  <ion-tabs>
+    <ion-fab #floatingButton vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button>
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters">
+        <ion-icon name="compass"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-conversations" class="comments">
+        <ion-icon name="chatbubbles"></ion-icon>
+        <ion-badge></ion-badge>
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path>
+      </svg>
+
+      <ion-tab-button tab="tab-notifications" class="notifs">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge></ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
 </div>
-<style>
-  .moi {
-    background-color: #5469d4;
-
-  }
-
-  nav {
-    border-radius: 12px;
-    background: #FFF;
-    padding: 0 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0;
-    height: 100% !important;
-  }
-
-  .nav-content {
-    display: flex;
-    height: 50px;
-    align-items: center;
-    list-style: none;
-    position: relative;
-
-  }
-
-  .link-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 120px;
-    width: 95px;
-    text-decoration: none;
-    margin-left: -50%;
-    margin-top: 25%;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .link-item.active {
-    transform: translateY(-10px);
-  }
-
-  .link-icon {
-    font-size: 28px;
-    color: #707070;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .link-item.active .link-icon {
-    color: #5469d4;
-
-  }
-
-  .link-text {
-    position: absolute;
-    font-size: 12px;
-    font-weight: 500;
-    color: #5469d4;
-    opacity: 0;
-    transform: translateY(32px);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .link-item.active .link-text {
-    opacity: 1;
-  }
-
-  .indicator {
-    position: absolute;
-    top: -15px;
-    left: 48px;
-    height: 36px;
-    width: 36px;
-    background-color: #FFF;
-    border: 6px solid #5469d4;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .indicator::before,
-  .indicator::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    height: 24px;
-    width: 19px;
-  }
-
-  .indicator::before {
-    left: -22px;
-    background-color: #FFF;
-    border-top-right-radius: 25px;
-    box-shadow: 1px -13px #5469d4;
-  }
-
-  .indicator::after {
-    right: -22px;
-    background-color: #FFF;
-    border-top-left-radius: 25px;
-    box-shadow: -1px -13px #5469d4;
-  }
-</style>

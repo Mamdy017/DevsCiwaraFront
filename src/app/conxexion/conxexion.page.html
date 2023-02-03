@@ -1,5 +1,6 @@
 <section class="container forms">
   <div class="form login">
+    <h1 style="color: white;">&nbsp; DevsCiwara</h1>
     <div class="form-content">
       <header>Page de connexion</header>
       <form id="stripe-login" *ngIf="!connexionReussi" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
@@ -20,7 +21,7 @@
           </ion-icon>
           <input [type]="type ? 'password' : 'text'" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && password.errors }" >
-          
+
           <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
             <div color="red" *ngIf="password.errors['required']" style="color: red;">Mot de
               passe obligatoir</div>

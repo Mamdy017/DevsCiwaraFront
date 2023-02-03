@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: center;
     background-color: #4070f4;
+    border-radius: 20px;
     column-gap: 30px;
   }
 
@@ -148,7 +149,7 @@
     justify-content: center;
   }
 
-   
+
 
 
   img.google-img {
@@ -157,7 +158,7 @@
     object-fit: cover;
   }
 
- 
+
 
   @media screen and (max-width: 400px) {
     .form {

@@ -13,7 +13,7 @@ import { StorageService } from '../Services/storage.service';
 })
 export class MenuPage {
 
-  
+
   form: any = {
     usernameOrEmail: null,
     password: null
@@ -37,7 +37,7 @@ export class MenuPage {
     private router: Router,private modalCtrl: ModalController) { }
 
   ngOnInit(): void {
-  
+
     if (this.storage.connexionReussi()) {
       this.connexionReussi = true;
       this.roles = this.storage.recupererUser().roles;
@@ -63,7 +63,7 @@ export class MenuPage {
   }
 
 
- 
+
 
 
 
@@ -105,9 +105,9 @@ export class MenuPage {
 
   closeModal2() {
     this.modalCtrl.dismiss();
-    
+
   }
-  
+
 
 }
 
