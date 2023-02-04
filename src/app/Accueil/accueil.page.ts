@@ -10,6 +10,7 @@ export class AccueilPage {
   constructor( private serviceAfficher:AfficherService) { }
 
   challenge:any;
+  
   ngOnInit() {
 
     const swiper = new Swiper('.slide-content', {
@@ -47,13 +48,16 @@ export class AccueilPage {
 
     this.serviceAfficher.afficherChallengeDecroissant().subscribe(data => {
       this.challenge = data;
-
+      this.challenge = this.challenge.slice(0,3);
     });
   }
-  options={
-    SlidesPerView:4,
-    centerdslider:true,
-    spaceBetween:10,
-    autoplay:true,
+  options = {
+    SlidesPerView: 4,
+    centeredSlider: true,
+    spaceBetween: 10,
+    autoplay: {
+      delay: 4000,
+    },
   }
+  
 }

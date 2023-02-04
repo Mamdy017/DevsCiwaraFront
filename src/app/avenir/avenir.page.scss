@@ -3,7 +3,7 @@
 ion-content {
   // ICI ON BLOCK LE SCROLLING
   --offset-bottom: auto !important;
-  background: #F8F6FB;
+  background: #E4E9F7;
   --overflow: hidden;
   overflow: auto;
 
@@ -11,6 +11,9 @@ ion-content {
     display: none;
   }
 
+}
+ion-segment::-webkit-scrollbar {
+  display: none;
 }
 // .slider {
 //   display: flex;

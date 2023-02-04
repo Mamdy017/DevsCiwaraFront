@@ -30,7 +30,7 @@ export class AfficherService {
   }
 
   afficherChallengeDecroissant() :Observable<any>{
-    return this.http.get(`${AUTH_API}/challenge/decroissant`);
+    return this.http.get(`http://localhost:8080/devs/auth/challenge/decroissant`);
   }
   afficherCritereParIdChallenge(idChallenge:number) :Observable<any>{
     return this.http.get(`http://localhost:8080/devs/auth/challenge/criteria/${idChallenge}`)
@@ -39,5 +39,8 @@ export class AfficherService {
     return this.http.get(`http://localhost:8080/devs/auth/challenge/afficher/${idChallenge}`)
   }
 
+  afficherUtilisateur() :Observable<any>{
+    return this.http.get(`http://localhost:8080/devs/auth/teamusrs/afficher2`)
+  }
  
 }

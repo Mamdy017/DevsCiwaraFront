@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="card-wrapper">
+  <div class="card-wrapper" style="margin-top: 14%; margin-bottom: 8vh;">
     <div [ngSwitch]="type">
       <div class="card">
         <!-- card left -->
@@ -23,9 +23,17 @@
                   }
 
                   ion-segment {
-                    background-color: #5260FF;
+                    background-color: #3880FF;
                     color: white;
 
+                  }
+
+                  ion-segment-button.segment-button-checked {
+                    background-color: #fff;
+                    color: #707070;
+                    border-radius: 12px;
+                    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+                    height: 20px !important;
                   }
                 </style>
                 <ion-segment color="primary" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
@@ -56,35 +64,12 @@
             <div class="product-detail">
               <h2>Description et critères: </h2>
               <p>{{description}}</p>
-              <ion-accordion-group #accordionGroup *ngFor="let crite of critere">
-                <ion-accordion value="1">
+              <ion-accordion-group #accordionGroup *ngFor="let crite of critere; let i = index">
+                <ion-accordion [value]="i + 1">
                   <ion-item slot="header" color="light">
-                    <ion-label>Critere 1</ion-label>
+                    <ion-label>Critere {{i+1}}</ion-label>
                   </ion-item>
                   <div class="ion-padding" slot="content">{{crite.critere}}</div>
-                </ion-accordion>
-                <ion-accordion value="2">
-                  <ion-item slot="header">
-                    <ion-label>Second Accordion</ion-label>
-                  </ion-item>
-                  <div class="ion-padding" slot="content">Second Content</div>
-                </ion-accordion>
-
-                <ion-accordion value="3">
-                  <ion-item slot="header">
-                    <ion-label>Third Accordion</ion-label>
-                  </ion-item>
-                  <div class="ion-padding" slot="content">Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit. Deleniti exercitationem doloremque
-                    maxime maiores officiis iste laudantium rem voluptas, illum, vero
-                    placeat, odio quasi dolores nam quas officia adipisci
-                    eveniet possimus.</div>
-                </ion-accordion>
-                <ion-accordion value="4">
-                  <ion-item slot="header">
-                    <ion-label>Second Accordion</ion-label>
-                  </ion-item>
-                  <div class="ion-padding" slot="content">Second Content</div>
                 </ion-accordion>
               </ion-accordion-group>
               <style>
@@ -97,7 +82,7 @@
                 }
 
                 ion-accordion:hover {
-                  box-shadow: 0px 0px 10px #5260FF;
+                  box-shadow: 0px 0px 10px #3880FF;
                 }
 
                 ion-item {
@@ -110,17 +95,17 @@
               </style>
             </div>
 
-            <div class="purchase-info">
-              <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
+            <div class="purchase-info" >
+              <button *ngIf="isLoggedIn" type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
                 id="open-modal" expand="block">
                 &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
               </button>
-              <button type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
-                id="open-modal2" expand="block">
+              <button *ngIf="!isLoggedIn" type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
+              routerLink="/menu/connexion" expand="block">
                 &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
               </button>
             </div>
-            
+
             <ion-modal #modal trigger="open-modal">
               <ng-template>
                 <h1 slot="end" style="margin-left: 90%; cursor: pointer;" (click)="modal.dismiss()">x</h1>
@@ -131,7 +116,7 @@
                     <input type="text" name="nom" formControlName="nom" placeholder="Nom de l'équipe"
                       style="margin-bottom: 10%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;">
                     <button type="submit"
-                      style="background-color: #5260FF; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 90%;">Envoyer</button>
+                      style="background-color: #3880FF; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 90%;">Envoyer</button>
                   </div>
                 </form>
               </ng-template>
@@ -307,18 +292,18 @@
               <div class="question">
                 <img src="../../assets/mobile.jpg" alt="">
                 <span>Mamady Camara</span>
-                
+
               </div>
-             
+
               <hr style="height: 2px; background-color: #707070;">
             </div>
             <div class="mesquestions">
               <div class="question">
                 <img src="../../assets/mobile.jpg" alt="">
                 <span>Mamady Camara</span>
-               
+
               </div>
-             
+
               <hr style="height: 2px; background-color: #707070;">
             </div>
             <div class="mesquestions">
@@ -327,10 +312,52 @@
                 <span>Mamady Camara</span>
               </div>
               <hr style="height: 2px; background-color: #707070;">
-              <button type="button" class="btn" style="font-size: 1.2em;margin-left: 50%;margin-top: 20% !important; background-color: #5260FF;border-radius: 15px;text-align: center;color: #FFF; margin-bottom: 2% !important; height: 35px !important; "
-              id="open-modal" expand="block">
-              &nbsp; Nouvelle <i class="fas fa-plus" style="color: white;"></i> &nbsp;
-            </button>
+              <button type="button" class="btn" id="open-modal3"
+                style="font-size: 1.2em;margin-left: 50%;margin-top: 20% !important; background-color: #3880FF;border-radius: 15px;text-align: center;color: #FFF; margin-bottom: 2% !important; height: 35px !important; "
+                id="open-modal" expand="block">
+                &nbsp; Nouvelle <i class="fas fa-plus" style="color: white;"></i> &nbsp;
+              </button>
+              <ion-modal #modal3 trigger="open-modal">
+                <ng-template>
+                  <form action="" [formGroup]="formUsers" style="margin-top: 10%;">
+                    <ion-list>
+                      <ion-item>
+                        <ion-select placeholder="Sectionner une liste" [multiple]="true">
+                          <ion-select-option value="1" formControlName="userIds">ici</ion-select-option>
+                          <ion-select-option value="2" formControlName="userIds">ici</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                    </ion-list>
+                    <button type="submit"
+                      style="background-color: #3880FF; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 90%; margin-top: 5% !important; margin-left: 5%;">Envoyer</button>
+                  </form>
+
+                </ng-template>
+              </ion-modal>
+              <div class="container">
+                <h1>Add Users to Team for Challenge</h1>
+                <form (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="userIds">User IDs:</label>
+                    <input type="text" class="form-control" id="userIds" [(ngModel)]="userIds" name="userIds"
+                      placeholder="Enter User IDs separated by commas">
+                  </div>
+                  <div class="form-group">
+                    <label for="teamId">Team ID:</label>
+                    <input type="number" class="form-control" id="teamId" [(ngModel)]="teamId" name="teamId">
+                  </div>
+                  <div class="form-group">
+                    <label for="challengeId">Challenge ID:</label>
+                    <input type="number" class="form-control" id="challengeId" [(ngModel)]="challengeId"
+                      name="challengeId">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <div *ngIf="message">
+                  <p [ngClass]="{ 'success': success, 'error': !success }">{{ message }}</p>
+                </div>
+              </div>
+
             </div>
             <h1 style="height: 20%;"></h1>
           </div>
@@ -341,8 +368,8 @@
 
   <style>
     .active {
-      /* background-color: #5260FF; */
-      color: #5260FF;
+      /* background-color: #3880FF; */
+      color: #3880FF;
       font-size: 12px;
       height: 35px;
       width: 95px;

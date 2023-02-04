@@ -7,12 +7,13 @@ import { AfficherService } from '../Services/afficher.service';
   styleUrls: ['avenir.page.scss']
 })
 export class AvenirPage {
-
+  type = 'deposit';
   content: number = 1;
   activeOption = 1;
   challengeEncours: any;
   challengeTerminer: any;
   challengeAvenir: any;
+  decroissant: any;
 
   showContent(opt: number) {
     this.content = opt;
@@ -25,15 +26,18 @@ export class AvenirPage {
   ngOnInit() {
     this.serviceAfficher.afficherChallengeAvenir().subscribe(data => {
       this.challengeAvenir = data;
-      console.table(this.challenge);
     });
     this.serviceAfficher.afficherChallengeEncours().subscribe(data => {
       this.challengeEncours = data;
-      console.table(this.challengeEncours);
+      
     });
     this.serviceAfficher.afficherChallengeTerminer().subscribe(data => {
       this.challengeTerminer = data;
-      console.table(this.challengeTerminer);
+     
+    });
+    this.serviceAfficher.afficherChallengeDecroissant().subscribe(data => {
+      this.decroissant = data;
+     
     });
   // }
   // ngDoCheck() {
@@ -41,6 +45,9 @@ export class AvenirPage {
   //       this.previousData = this.data;
   //       // Traitement des données
   //   }
+}
+segmentChanged(ev: any) {
+  console.log('Segment changed', ev);
 }
 
 }

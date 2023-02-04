@@ -1,301 +1,97 @@
-<!-- <ion-content [fullscreen]="true">
-  <div class=" " style="height: 65%;">
-    <ion-slides [options]="options">
-      <ion-slide>
-        <div class="slide row">
-          <div class="col-md-6">
-            <h2>Bienvenue sur DevsCiwara</h2>
-            <p>
-              Améliorez votre expertise en programmation en prenant part à notre compétition de développement
-            </p>
-            <div class="py-3 moi" style="margin-top: 25%;">
-              <button>
-                Voir les challenge
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img src="../../assets/programmer-1.gif" style="width: 100% !important;height:50% !important;">
-          </div>
-        </div>
-      </ion-slide>
-
-      <ion-slide>
-        <div class="slide row">
-          <div class="col-md-6">
-            <h2>Welcome</h2>
-            <p>
-              Rejoignez notre communauté de développeurs et relevez des défis pour améliorer vos compétences.
-            </p>
-            <div class="py-3 moi" style="margin-top: 25%;">
-              <button>
-                Voir les challenge
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img
-              src="../../assets/program.gif"
-              style="width: 100% !important;height:70% !important;">
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="slide row">
-          <div class="col-md-6">
-            <h2>Bienvenue</h2>
-            <p>
-              Devenez un développeur expérimenté en résolvant des défis techniques sur notre plateforme de challenge
-            </p>
-            <div class="py-3 moi" style="margin-top: 25%;">
-              <button>
-                Voir les challenge
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img src="../../assets/Whyprogramming.gif"
-              style="width: 100% !important;height:80% !important; margin-top: 5%;">
-          </div>
-        </div>
-      </ion-slide>
-
-      <ion-slide>
-        <div class="slide row">
-          <div class="col-md-6">
-            <h2>Bienvenue</h2>
-            <p>
-              Montrez vos compétences en programmation et gagnez de l'expérience en participant à notre challenge de
-              développeurs
-            </p>
-            <div class="py-3 moi" style="margin-top: 25%;">
-              <button>
-                Voir les challenge
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <img src="../../assets/card.gif"
-              style="width: 100% !important;height:70% !important;">
-          </div>
-        </div>
-      </ion-slide>
-    </ion-slides>
-  </div>
-  <div class="row mescards">
-    <h1>Les 8 challenges les plus recentes</h1>
-    <ion-card *ngFor="let ch of challenge"
-      [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'' + ch.photo + '\')'}">
-      <ion-card-header>
-        <ion-card-title> {{ch.titre}}</ion-card-title>
-        <ion-card-subtitle>Categories: {{ch.categories.nom}}</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        {{ch.description}}
-      </ion-card-content>
-
-      <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button>
-    </ion-card>
-  </div>
-  <ion-footer>
-    <ion-toolbar>
-      <ion-title>Footer</ion-title>
-    </ion-toolbar>
-  </ion-footer>
-
-</ion-content> -->
-
 
 <ion-content>
   <div class="container">
-    <main class="card1">
+    <div class="slide-container swiper" style="margin-top: 15% !important;">
+      <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+          <ion-slides [options]="options">
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                  <img src="../../assets/programmer-1.gif" alt="" class="card-img">
+                </div>
+              </div>
 
-        <article>
-            <img class="img" src="../../assets/mobile.jpg">
-            <div class="text">
-                <h3>Web Developer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut repellat recusandae voluptate est iste consequatur.</p>
-                <button>Join Us</button>
+              <div class="card-content">
+                <h2 class="name">Sur DevsCiwara</h2>
+                <p class="description">Améliorez votre expertise
+                  en prenant part à nos compétitions</p>
+
+                <button class="button" routerLink="/menu/avenir">Challenge</button>
+              </div>
             </div>
-        </article>
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
 
-        <article>
-            <img class="img" src="../../assets/mobile.jpg">
-            <div class="text">
-                <h3>Web Designer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut repellat recusandae voluptate est iste consequatur.</p>
-                <button>Join Us</button>
+                <div class="card-image">
+                  <img src="../../assets/program.gif" alt="" class="card-img">
+                </div>
+              </div>
+
+              <div class="card-content">
+                <h2 class="name">Sur DevsCiwara</h2>
+                <p class="description">Rejoignez notre communauté et
+                   relevez des défis pour améliorer vos compétences.</p>
+
+               <button class="button" routerLink="/menu/avenir">Challenge</button>
+              </div>
             </div>
-        </article>
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
 
-        <article>
-            <img class="img" src="../../assets/mobile.jpg">
-            <div class="text">
-                <h3>Graphic Designer</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut repellat recusandae voluptate est iste consequatur.</p>
-                <button>Join Us</button>
+                <div class="card-image">
+                  <img src="../../assets/Whyprogramming.gif" alt="" class="card-img">
+                </div>
+              </div>
+
+              <div class="card-content">
+                <h2 class="name">Sur DevsCiwara</h2>
+                <p class="description">Montrez vos compétences  et gagnez de
+                   l'expérience en participant à nos challenges.</p>
+
+               <button class="button" routerLink="/menu/avenir">Challenge</button>
+              </div>
             </div>
-        </article>
-
-    </main>
-</div>
-<div class="slide-container swiper">
-  <div class="slide-content">
-      <div class="card-wrapper swiper-wrapper"  >
-        <ion-slides [options]="options">
-          <div class="card swiper-slide">
+            <div class="card swiper-slide">
               <div class="image-content">
-                  <span class="overlay"></span>
+                <span class="overlay"></span>
 
-                  <div class="card-image">
-                    <img  src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
+                <div class="card-image">
+                  <img src="./../assets/card.gif" alt="" class="card-img">
+                </div>
               </div>
 
               <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                <h2 class="name" routerLink="/menu/avenir">Sur DevsCiwara</h2>
+                <p class="description">Devenez un développeur expérimenté en résolvant 
+                  des défis techniques sur notre plateforme.</p>
 
-                  <button class="button">View More</button>
+               <button class="button">Challenge</button>
               </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                    <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-          <div class="card swiper-slide">
-              <div class="image-content">
-                  <span class="overlay"></span>
-
-                  <div class="card-image">
-                      <img src="../../assets/mobile.jpg" alt="" class="card-img">
-                  </div>
-              </div>
-
-              <div class="card-content">
-                  <h2 class="name">David Dell</h2>
-                  <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                  <button class="button">View More</button>
-              </div>
-          </div>
-        </ion-slides>
+            </div>
+          </ion-slides>
+        </div>
       </div>
-  </div>
 
-  <div class="swiper-button-next swiper-navBtn"></div>
-  <div class="swiper-button-prev swiper-navBtn"></div>
-  <div class="swiper-pagination"></div>
-</div>
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <main class="card1" style="margin-bottom: 10vh !important;">
+
+      <article *ngFor="let chal of challenge">
+        <img class="img" src="{{chal.photo}}">
+        <div class="text">
+          <h3>{{chal.titre}}</h3>
+          <p>{{chal.description.slice(0,60) + '...'}}</p>
+          <button routerLink="/menu/avenir">Voir plus...</button>
+        </div>
+      </article>
+    </main>
+
+  </div>
 
 </ion-content>

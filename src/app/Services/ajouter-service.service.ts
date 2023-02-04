@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,4 +18,8 @@ export class AjouterServiceService {
     return this.http.post(`http://localhost:8080/devs/auth/solution/ajout/2/5/2`, formData);
   }
 
+  addTeamUsersToTeamForChallenge(userIds: number[], id: number, challengeId: number): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(`http://localhost:8080/devs/auth/teamusrs/teams/${id}/${challengeId}`, { userIds }, { headers });
+  }
 }

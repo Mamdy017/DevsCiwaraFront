@@ -108,8 +108,11 @@ export class MenuPage {
 
   }
 
-
+  goToHome() {
+    this.router.navigate(['/menu/accueil']);
+  }
 }
+
 
 function ionViewDidEnter() {
   throw new Error('Function not implemented.');
