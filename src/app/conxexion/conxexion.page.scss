@@ -83,7 +83,7 @@
 
   .eye-icon {
     position: absolute;
-    top: 50%;
+    top: 100%;
     right: 10px;
     transform: translateY(-50%);
     font-size: 18px;
@@ -116,8 +116,9 @@
   }
 
   .form a {
-    color: #3880FF;
+    color: #0171d3;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .form-content a:hover {

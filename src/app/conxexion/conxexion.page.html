@@ -16,7 +16,7 @@
 
         <div class="field input-field">
           <label for="password">Mot de passe<b style="color:red">*</b></label>
-          <ion-icon [name]="type ? 'eye-off' : 'eye'" slot="end" color="dark" (click)="changeType()" style="font-family: 'Poppins';
+          <ion-icon [name]="type ? 'eye-off' : 'eye'" slot="end" color="dark"  style="font-family: 'Poppins';
             font-style: normal; opacity: 0.5; position:absolute;margin-left: 65% !important; margin-top: 10% !important;">
           </ion-icon>
           <input [type]="type ? 'password' : 'text'" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel"
@@ -29,7 +29,7 @@
               le mot de passe doit contenir au mois 6 caracters
             </div>
           </div>
-          <i class='bx bx-hide eye-icon'></i>
+          <i (click)="changeType()" class='bx bx-hide eye-icon'></i>
         </div>
 
         <div class="form-link" style="margin-top:20%">

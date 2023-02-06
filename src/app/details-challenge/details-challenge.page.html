@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="card-wrapper" style="margin-top: 14%; margin-bottom: 8vh;">
+  <div class="card-wrapper" style="margin-top: 32%; margin-bottom: 8vh;" >
     <div [ngSwitch]="type">
       <div class="card">
         <!-- card left -->
@@ -8,13 +8,13 @@
             <div class="img-showcase">
 
               <ion-card [ngStyle]="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(\'' + photo + '\')',
-            'background-repeat': 'no-repeat',
-            'background-size': 'cover'}" style="object-fit: fill;">
+                'background-repeat': 'no-repeat',
+                'background-size': 'cover'}" style="object-fit: fill;">
                 <ion-card-header>
                   <ion-card-title class="moi2">{{titre}}</ion-card-title>
                   <ion-card-subtitle class="moi2">Categories:{{cate}}</ion-card-subtitle>
                 </ion-card-header>
-                <ion-card-content class="moi2">
+                <ion-card-content class="moi2" style="margin-bottom: 20%;">
                   meta description
                 </ion-card-content>
                 <style>
@@ -25,16 +25,25 @@
                   ion-segment {
                     background-color: #3880FF;
                     color: white;
-
+                    height: 40%;
+                    position: absolute;
+                    top: 60%;
+                    width: 100%;
                   }
 
                   ion-segment-button.segment-button-checked {
                     background-color: #fff;
                     color: #707070;
                     border-radius: 12px;
-                    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
-                    height: 20px !important;
+                    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+                    height: 20% !important;
                   }
+
+                  ion-segment-button {
+                    height: 20% !important;
+                    /* 20% de moins que la hauteur originale */
+                  }
+
                 </style>
                 <ion-segment color="primary" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
                   <ion-segment-button value="deposit" checked>
@@ -50,7 +59,7 @@
                   <ion-segment-button value="Forum">
                     <ion-label>Forum</ion-label>
                   </ion-segment-button>
-                  <ion-segment-button value="equipe">
+                  <ion-segment-button *ngIf="isLoggedIn" value="equipe">
                     <ion-label>Equipe</ion-label>
                   </ion-segment-button>
                 </ion-segment>
@@ -92,16 +101,18 @@
                 .ion-padding {
                   margin-left: 4% !important;
                 }
+
               </style>
             </div>
 
-            <div class="purchase-info" >
-              <button *ngIf="isLoggedIn" type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
-                id="open-modal" expand="block">
+            <div class="purchase-info">
+              <button *ngIf="isLoggedIn" type="button" class="btn"
+                style="font-size: 1.2em;margin-left: auto;margin-right: auto;" id="open-modal" expand="block">
                 &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
               </button>
-              <button *ngIf="!isLoggedIn" type="button" class="btn" style="font-size: 1.2em;margin-left: auto;margin-right: auto;"
-              routerLink="/menu/connexion" expand="block">
+              <button *ngIf="!isLoggedIn" type="button" class="btn"
+                style="font-size: 1.2em;margin-left: auto;margin-right: auto;" routerLink="/menu/connexion"
+                expand="block">
                 &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
               </button>
             </div>
@@ -154,58 +165,39 @@
           </div>
         </ion-list>
         <ion-list *ngSwitchCase="'Code'">
-          <ion-grid style="margin-top: 2%;">
-            <ion-row>
-              <ion-col>
-                <ion-card>
-                  <ion-card-header style="border: solid 0.002em #FFF;">
-                    <ion-card-title style="background-color: #707070;">
-                      <ion-grid>
-                        <ion-row>
-                          <ion-col style="  width:15%">N°</ion-col>
-                          <ion-col style=" width:43%">Equipe</ion-col>
-                          <ion-col style=" width:42%">Code</ion-col>
-                        </ion-row>
-                      </ion-grid>
-                    </ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content style="color: #707070;">
-                    <ion-grid>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style="width:15%">1</ion-col>
-                        <ion-col style="width:43%">equipe1</ion-col>
-                        <ion-col style="width:42%">10000</ion-col>
-                      </ion-row>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style=" width:15%">1</ion-col>
-                        <ion-col style=" width:43%">equipe1</ion-col>
-                        <ion-col style=" width:42%">10000</ion-col>
-                      </ion-row>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style=" width:15%">1</ion-col>
-                        <ion-col style=" width:43%">equipe1</ion-col>
-                        <ion-col style=" width:42%">10000</ion-col>
-                      </ion-row>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style=" width:15%">1</ion-col>
-                        <ion-col style=" width:43%">equipe1</ion-col>
-                        <ion-col style=" width:42%">10000</ion-col>
-                      </ion-row>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style=" width:15%">1</ion-col>
-                        <ion-col style=" width:43%">equipe1</ion-col>
-                        <ion-col style=" width:42%">10000</ion-col>
-                      </ion-row>
-                      <ion-row style="border-bottom: solid 0.002em #707070;">
-                        <ion-col style=" width:15%">1</ion-col>
-                        <ion-col style=" width:43%">equipe1</ion-col>
-                        <ion-col style=" width:42%">10000</ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
+          <ion-grid style="margin-top: 5%;">
+            <div class="monLabel">
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <b>1</b>
+                <span>Equipe2</span>
+                <span>Code</span>
+                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
+              </div>
+            </div>
+            <div class="monLabel">
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <b>2</b>
+                <span>Equipe2</span>
+                <span>Code</span>
+                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
+              </div>
+            </div>
+            <div class="monLabel">
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <b>3</b>
+                <span>Equipe2</span>
+                <span>Code</span>
+                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
+              </div>
+            </div>
+            <div class="monLabel">
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <b>4</b>
+                <span>Equipe2</span>
+                <span>Code</span>
+                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
+              </div>
+            </div>
           </ion-grid>
         </ion-list>
         <ion-list *ngSwitchCase="'Forum'">
@@ -258,43 +250,63 @@
           <ion-grid style="margin-top: 5%;">
             <div class="monLabel">
               <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">N° 12</a>
+                <a href="#">1</a>
                 <span>Equipe1</span>
-                <span>100</span>
+                <span>100 points</span>
               </div>
             </div>
             <div class="monLabel">
-              <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a
-                  href="#"><i class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <a href="#">2</a>
+                <span>Equipe1</span>
+                <span>100 points</span>
+              </div>
             </div>
             <div class="monLabel">
-
-              <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a
-                  href="#"><i class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <a href="#">3</a>
+                <span>Equipe1</span>
+                <span>100 points</span>
+              </div>
             </div>
             <div class="monLabel">
-
-              <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a
-                  href="#"><i class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <a href="#">4</a>
+                <span>Equipe1</span>
+                <span>100 points</span>
+              </div>
             </div>
+
             <div class="monLabel">
-
-              <div class="social-media"> <a href="#">12</a> <a href="#"><i class="fab fa-instagram"></i></a> <a
-                  href="#"><i class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+              <div class="social-media" style="display: flex;justify-content: space-around;">
+                <a href="#">5</a>
+                <span>Equipe1</span>
+                <span>100 points</span>
+              </div>
             </div>
+            <!-- <div class="monLabel">
+              <div class="social-media">
+                <a href="#">12</a>
+                <div class="icons" style="margin-right: 6%;">
+                  <span> <img src="../../assets/mobile.jpg" alt=""></span>
+                  <span><img src="../../assets/mobile.jpg" alt=""></span>
+                  <span><img src="../../assets/mobile.jpg" alt=""></span>
+                  <b style="margin-top: 3%; margin-left: 3%;">FirstEquipe</b>
+                </div>
+              </div>
+            </div> -->
+
 
           </ion-grid>
         </ion-list>
         <ion-list *ngSwitchCase="'equipe'">
           <div class="tous" style="margin-top: 2%;">
 
-            <div class="mesquestions">
+            <div class="mesquestions" *ngFor="let membre of afficherEquipeMembre1">
               <div class="question">
-                <img src="../../assets/mobile.jpg" alt="">
-                <span>Mamady Camara</span>
-
+                <img src="{{membre.profile}}" alt="">
+                <span>{{membre.nom}} {{membre.prenom}}</span>
               </div>
-
               <hr style="height: 2px; background-color: #707070;">
             </div>
             <div class="mesquestions">
@@ -388,18 +400,17 @@
       width: 100%;
       height: 10%;
       background-color: #FFF;
-      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
       border-radius: 12px;
     }
 
     .social-media::after {
-      background-color: blue;
+      /* background-color: blue; */
       box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
     }
 
     .social-media:hover {
-      background-color: #707070;
-      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.549);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.549);
       margin-bottom: 2%;
 
     }
@@ -407,7 +418,9 @@
     a {
       position: relative;
       background-color: #E6E7E8;
-      margin: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 10% !important;
       height: 40px;
       width: 40px;
       border-radius: 50%;
@@ -416,6 +429,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-decoration-line: none;
+      border: .2em solid #3880FF;
     }
 
     a i {
@@ -426,7 +441,7 @@
       font-size: 25px;
     }
 
-    a::before {
+    /* a::before {
       content: '';
       position: absolute;
       height: 100%;
@@ -434,68 +449,31 @@
       border-radius: 50%;
       transform: scale(0);
       transition: 0.5s ease-in-out;
-    }
+    } */
 
-    a:nth-child(1):hover::before {
+    /* a:nth-child(1):hover::before {
       transform: scale(1);
       background-color: #3b5998;
+      color: white;
     }
 
     a:nth-child(1) {
       color: #3b5998;
-    }
+    } */
 
-    a:nth-child(1):hover {
-      color: #E6E7E8;
-    }
 
-    a:nth-child(2):hover::before {
-      transform: scale(1);
-      background-color: #f2003c;
-      width: 80%;
-      height: 80%;
-    }
 
-    a:nth-child(2) {
-      color: #f2003c;
-    }
 
-    a:nth-child(2):hover {
-      color: #E6E7E8;
-    }
 
-    a:nth-child(3):hover::before {
-      transform: scale(1);
-      background-color: #0e76a8;
-    }
 
-    a:nth-child(3) {
-      color: #0e76a8;
-    }
 
-    a:nth-child(3):hover {
-      color: #E6E7E8;
-    }
 
-    a:nth-child(4):hover::before {
-      width: 80%;
-      height: 80%;
-      transform: scale(1);
-      background-color: #00acee;
-    }
-
-    a:nth-child(4) {
-      color: #00acee;
-    }
-
-    a:nth-child(4):hover {
-      color: #E6E7E8;
-    }
 
     .monLabel {
       display: block !important;
-      margin-bottom: 5%;
+      margin-bottom: 3%;
     }
+
   </style>
 
 

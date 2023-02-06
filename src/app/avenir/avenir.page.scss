@@ -152,3 +152,71 @@ ion-segment::-webkit-scrollbar {
   //  margin-right:50% !important;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.icons {
+  display: flex;
+  background-color: wheat;
+}
+
+.icons span {
+ 
+  margin-left: 5px;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  // box-shadow: inset -1px -1px 2px white, inset 1px 1px 2px white;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+// .icons li a i {
+//   color: white;
+//   position: absolute;
+//   top: 60%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   font-size: 30px;
+// }
+
+
+
+@keyframes slide {
+  0% {}
+
+  25% {
+      bottom: 0%;
+  }
+
+  75% {
+      bottom: 80%;
+      transform: rotate(60deg);
+  }
+
+  100% {
+      bottom: -50%;
+  }
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ConxexionPage } from '../conxexion/conxexion.page';
 import { ConnexionService } from '../Services/connexion.service';
 
 @Component({
@@ -16,7 +18,7 @@ export class InscriptionPage implements OnInit {
   InscriptionReussi = false;
   Inscriptionechoue = false;
   messageErreur = '';
-  constructor(private inscription:ConnexionService) { }
+  constructor(private inscription:ConnexionService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
@@ -40,8 +42,17 @@ export class InscriptionPage implements OnInit {
     });
   }
   type = true;
+  type1 = true;
   changeType() {
       this.type = !this.type;
     }
-  
+    changeType1() {
+      this.type1 = !this.type1;
+    }
+    async openModalCon() {
+      const modal = await this.modalCtrl.create({
+        component: ConxexionPage
+      });
+      return await modal.present();
+    }
 }

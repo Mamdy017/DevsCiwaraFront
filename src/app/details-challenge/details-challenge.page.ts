@@ -7,6 +7,7 @@ import { AfficherService } from '../Services/afficher.service';
 import { AjouterServiceService } from '../Services/ajouter-service.service';
 import { StorageService } from '../Services/storage.service';
 
+
 @Component({
   selector: 'app-details-challenge',
   templateUrl: './details-challenge.page.html',
@@ -27,7 +28,7 @@ export class DetailsChallengePage implements OnInit {
   datedebut: any;
   photo: any;
   critere: any;
-  iduser1!: number;
+  iduser1: any;
   idChallenge1!: number;
   utilisateurAffichage: any;
   response!: Object;
@@ -39,9 +40,11 @@ export class DetailsChallengePage implements OnInit {
   connexionReussi = false;
   connexionEchoue = false;
   messageErreur = '';
-
+  afficherEquipeMembre1:any;
+  afficherEquipeParUtilisateur:any;
   currentUser: any;
   isLoggedIn: any;
+  idTeam:any;
   roles: string[] = [];
   showContent(opt: number) {
     this.content = opt;
@@ -63,7 +66,7 @@ export class DetailsChallengePage implements OnInit {
       this.roles = this.storage.recupererUser().roles;
     }
 
-  
+
 
     this.isLoggedIn = this.storage.connexionReussi();
 
@@ -79,7 +82,7 @@ export class DetailsChallengePage implements OnInit {
       fileSource: new FormControl('', [Validators.required])
     });
     this.currentUser = this.storage.recupererUser();
-    console.table(this.currentUser);
+    // console.table(this.currentUser);
     var moi = this.currentUser.id;
     this.idChallenge1 = this.routes.snapshot.params['idChallenge1'];
 
@@ -96,9 +99,22 @@ export class DetailsChallengePage implements OnInit {
     this.serviceAfficher.afficherCritereParIdChallenge(this.idChallenge1).subscribe(data => {
       this.critere = data;
     });
+  
+    this.serviceAfficher.afficherEquipeParUtilisateur(this.idChallenge1, moi).subscribe(data => {
+      this.afficherEquipeParUtilisateur = data;
+      // console.log("teammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" + JSON.stringify(this.afficherEquipeParUtilisateur[0].id) + "idusers"+ moi);
+    var idTeam1=this.afficherEquipeParUtilisateur[0].id;
+    this.idTeam=this.afficherEquipeParUtilisateur[0].id;
+     console.log("id teams" +idTeam1); 
+     
+     this.serviceAfficher.afficherEquipeMembre(this.idChallenge1,idTeam1).subscribe(data => {
+      this.afficherEquipeMembre1 = data;
+    });
+    });
+    
     this.serviceAfficher.afficherUtilisateur().subscribe(data => {
       this.utilisateurAffichage = data;
-      console.log("mes users" + JSON.stringify(this.utilisateurAffichage)+ "et id" + this.utilisateurAffichage[0].id);
+      //  console.log("mes users" + JSON.stringify(this.utilisateurAffichage)+ "et id" + this.utilisateurAffichage[0].id);
 
     });
 
@@ -110,8 +126,9 @@ export class DetailsChallengePage implements OnInit {
     });
 
     this.currentUser = this.storage.recupererUser();
-    console.table(this.currentUser);
+    // console.table(this.currentUser);
     this.iduser1 = this.currentUser.id;
+    moi=this.currentUser.id;
   }
   @ViewChild('accordionGroup', { static: true })
   accordionGroup!: IonAccordionGroup;
@@ -163,21 +180,21 @@ export class DetailsChallengePage implements OnInit {
     formData.append('source', this.form.value.fileSource, this.form.value.fileSource.name);
     formData.append('point', this.form.value.point);
     console.log("hfhfh" + this.form.value.fileSource.name)
-    this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/1/1/3`, formData)
+    this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/${this.idChallenge1}/${this.idTeam}/${this.iduser1}`, formData)
       .subscribe(
         (res) => console.log(res),
         (err) => console.error(err)
       );
   }
   onSubmit() {
-    console.log("mes avants" +this.userIds);
+    console.log("mes avants" + this.userIds.split(',').map(id => +id));
     this.serviceAjouter.addTeamUsersToTeamForChallenge(this.userIds.split(',').map(id => +id), this.teamId, this.challengeId)
       .subscribe(response => {
         this.message = response.message;
         this.success = response.success;
       });
   }
- 
+
 
   segmentChanged(ev: any) {
     console.log('Segment changed', ev);

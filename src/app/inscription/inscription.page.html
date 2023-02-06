@@ -145,7 +145,7 @@
   <section class="container forms" style="margin-top: 35vh !important;">
     <div class="form login">
       <div class="form-content">
-        <header>Page d'inscription</header>
+        <header>Inscription</header>
         <form id="stripe-login" *ngIf="!InscriptionReussi" name="form" (ngSubmit)="f.form.valid && onSubmit()"
           #f="ngForm" novalidate>
           <div class="field input-field" style="margin-bottom: 8vh !important;">
@@ -194,9 +194,6 @@
             <input [type]="type ? 'password' : 'text'" class="input" id="password" class="form-control" name="password"
               [(ngModel)]="form.password" required minlength="6" #password="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
-              <ion-icon [name]="type ? 'eye-off' : 'eye'" slot="end" color="dark" (click)="changeType()" style="font-family: 'Poppins';
-              font-style: normal; opacity: 0.5;">
-            </ion-icon>
             <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
               <div color="red" *ngIf="password.errors['required']" style="color: red;">Le mot de passe est
                 obligatoir</div>
@@ -204,21 +201,20 @@
                 le mot de passe doit contenir au mois 6 caracters
               </div>
             </div>
+            <i (click)="changeType()" class='bx bx-hide eye-icon'></i>
           </div>
 
           <div class="field input-field">
             <label for="password">Confirmer mot de passe<b style="color:red">*</b></label>
-            <input [type]="type ? 'password' : 'text'" name="passwordConfirm" [(ngModel)]="form.passwordConfirm" required
+            <input [type]="type1 ? 'password' : 'text'" name="passwordConfirm" [(ngModel)]="form.passwordConfirm" required
               #passwordConfirm="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && passwordConfirm.value != form.password }" />
-              <ion-icon [name]="type ? 'eye-off' : 'eye'" slot="end" color="dark" (click)="changeType()" style="font-family: 'Poppins';
-              font-style: normal; opacity: 0.5;">
-            </ion-icon>
+
             <div *ngIf="f.submitted && passwordConfirm.value != form.password" class="invalid-feedback"
               style="color:red">
               La confirmation de mot de passe ne correspond pas au mot de passe saisi.
             </div>
-            <i class='bx bx-hide eye-icon'></i>
+            <i (click)="changeType1()" class='bx bx-hide eye-icon'></i>
           </div>
 
           <div class="form-link" style="margin-top:20%">
@@ -237,7 +233,7 @@
           Inscription effectué
         </div>
         <div class="form-link" style="margin-bottom: 30vh !important;">
-          <span>Vous avez un compte? <a class="link signup-link">S'inscrire</a></span>
+          <span>Vous avez un compte? <a class="link signup-link" (click)="openModalCon()" >Se connecter</a></span>
         </div>
       </div>
 
