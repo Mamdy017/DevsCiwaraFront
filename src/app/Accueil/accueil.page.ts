@@ -56,7 +56,7 @@ export class AccueilPage {
     centeredSlider: true,
     spaceBetween: 10,
     autoplay: {
-      delay: 4000,
+      delay: 5000,
     },
   }
   

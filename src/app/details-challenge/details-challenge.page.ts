@@ -147,7 +147,7 @@ export class DetailsChallengePage implements OnInit {
     const creatorId = this.iduser1;
     const challengeId = this.idChallenge1;
     this.serviceAjouter.AjouterTeam(team, creatorId, challengeId).subscribe(data => {
-      console.log("mmmm" + JSON.stringify(data))
+      // console.log("mmmm" + JSON.stringify(data))
       this.equipe.reset();
     });
 
