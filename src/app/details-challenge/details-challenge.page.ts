@@ -15,6 +15,7 @@ import { StorageService } from '../Services/storage.service';
 })
 export class DetailsChallengePage implements OnInit {
   [x: string]: any;
+  errorMessage: string = "";
   type = 'deposit';
   equipe!: FormGroup;
   formUsers!:FormGroup;
@@ -44,6 +45,7 @@ export class DetailsChallengePage implements OnInit {
   afficherEquipeParUtilisateur:any;
   currentUser: any;
   isLoggedIn: any;
+  status: any;
   idTeam:any;
   roles: string[] = [];
   showContent(opt: number) {
@@ -147,7 +149,8 @@ export class DetailsChallengePage implements OnInit {
     const creatorId = this.iduser1;
     const challengeId = this.idChallenge1;
     this.serviceAjouter.AjouterTeam(team, creatorId, challengeId).subscribe(data => {
-      // console.log("mmmm" + JSON.stringify(data))
+      this.errorMessage = data.message;
+      this.status=data.status;
       this.equipe.reset();
     });
 
@@ -180,11 +183,16 @@ export class DetailsChallengePage implements OnInit {
     formData.append('source', this.form.value.fileSource, this.form.value.fileSource.name);
     formData.append('point', this.form.value.point);
     console.log("hfhfh" + this.form.value.fileSource.name)
-    this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/${this.idChallenge1}/${this.idTeam}/${this.iduser1}`, formData)
-      .subscribe(
-        (res) => console.log(res),
-        (err) => console.error(err)
-      );
+    this.serviceAjouter.ajouterSolution(this.idChallenge1,this.idTeam,this.iduser1,formData).subscribe(data=>{
+      this.errorMessage = data.message;
+      this.status=data.status;
+      this.equipe.reset();
+    })
+    // this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/${this.idChallenge1}/${this.idTeam}/${this.iduser1}`, formData)
+    //   .subscribe(
+    //     (res) => console.log(res),
+    //     (err) => console.error(err)
+    //   );
   }
   onSubmit() {
     console.log("mes avants" + this.userIds.split(',').map(id => +id));

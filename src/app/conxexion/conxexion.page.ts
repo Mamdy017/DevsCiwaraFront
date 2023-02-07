@@ -11,6 +11,7 @@ import { StorageService } from '../Services/storage.service';
   styleUrls: ['./conxexion.page.scss'],
 })
 export class ConxexionPage implements OnInit {
+  
 
   form: any = {
     usernameOrEmail: null,
@@ -40,6 +41,7 @@ export class ConxexionPage implements OnInit {
   }
 
   onSubmit(): void {
+    this.refreshPage();
     const { usernameOrEmail, password } = this.form;
 
     this.connexion.login(usernameOrEmail, password).subscribe({
@@ -48,11 +50,26 @@ export class ConxexionPage implements OnInit {
 
         this.connexionEchoue = false;
         this.connexionReussi = true;
+
         this.storage.connexionReussi();
 
+        this.storage.enregistrer(data);
+
+        this.connexionEchoue = false;
+        this.connexionReussi = true;
+  
+        this.storage.connexionReussi();
+  
+        if(data){
+          
         this.roles = this.storage.recupererUser().roles;
-        // this.reloadPage();
-        this.router.navigateByUrl("/sidebar/board")
+    
+        // alert("hello")
+        this.refreshPage();
+        this.router.navigateByUrl("/menu/accueil");
+        this.modalCtrl.dismiss();
+        }
+
       },
       error: err => {
         this.messageErreur = err.error.message;
@@ -80,6 +97,11 @@ export class ConxexionPage implements OnInit {
   type = true;
   changeType() {
     this.type = !this.type;
+  }
+
+  refreshPage() {
+    
+    location.reload();
   }
 
 }

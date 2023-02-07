@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { AUTH_APIironment } from 'src/AUTH_APIironments/AUTH_APIironment';
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = '';
 // const AUTH_API = AUTH_APIironment.AUTH_API;
 
 const httpOptions = {
@@ -78,7 +78,7 @@ export class ConnexionService {
   }
 
   logout(): Observable<any> {
-    const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
+    const req = new HttpRequest('POST',`http://localhost:8080/api/auth/`, {}, httpOptions);
     return this.http.request(req);
   }
 }

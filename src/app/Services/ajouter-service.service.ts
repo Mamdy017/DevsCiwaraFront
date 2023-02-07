@@ -22,4 +22,10 @@ export class AjouterServiceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<any>(`http://localhost:8080/devs/auth/teamusrs/teams/${id}/${challengeId}`, { userIds }, { headers });
   }
+
+  
+  ajouterSolution(idChallenge1: number, idTeam: number, iduser1: number, formData:FormData): Observable<any> {
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(`http://localhost:8080/devs/auth/solution/ajout/${idChallenge1}/${idTeam}/${iduser1}`, formData);
+  }
 }
