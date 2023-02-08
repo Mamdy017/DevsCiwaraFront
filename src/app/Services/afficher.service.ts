@@ -52,6 +52,10 @@ export class AfficherService {
     return this.http.get(`http://localhost:8080/devs/auth/challenge/afficher/${idChallenge}`)
   }
 
+  classements(idChallenge:number) :Observable<any>{
+    return this.http.get(`http://localhost:8080/devs/auth/solution/challenge/${idChallenge}`)
+  }
+
 
 
 

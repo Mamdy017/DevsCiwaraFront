@@ -187,34 +187,10 @@
         </ion-list>
         <ion-list *ngSwitchCase="'Code'">
           <ion-grid style="margin-top: 5%;">
-            <div class="monLabel">
+            <div class="monLabel"  *ngFor="let rang of classement let i = index">
               <div class="social-media" style="display: flex;justify-content: space-around;">
-                <b>1</b>
-                <span>Equipe2</span>
-                <span>Code</span>
-                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <b>2</b>
-                <span>Equipe2</span>
-                <span>Code</span>
-                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <b>3</b>
-                <span>Equipe2</span>
-                <span>Code</span>
-                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <b>4</b>
-                <span>Equipe2</span>
+                <b>{{i+1}}</b>
+                <span>{{rang.team.nom}}</span>
                 <span>Code</span>
                 <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
               </div>
@@ -269,40 +245,11 @@
         </ion-list>
         <ion-list *ngSwitchCase="'Classement'">
           <ion-grid style="margin-top: 5%;">
-            <div class="monLabel">
+            <div class="monLabel" *ngFor="let rang of classement let i = index">
               <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">1</a>
-                <span>Equipe1</span>
-                <span>100 points</span>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">2</a>
-                <span>Equipe1</span>
-                <span>100 points</span>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">3</a>
-                <span>Equipe1</span>
-                <span>100 points</span>
-              </div>
-            </div>
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">4</a>
-                <span>Equipe1</span>
-                <span>100 points</span>
-              </div>
-            </div>
-
-            <div class="monLabel">
-              <div class="social-media" style="display: flex;justify-content: space-around;">
-                <a href="#">5</a>
-                <span>Equipe1</span>
-                <span>100 points</span>
+                <a href="#">{{i+1}}</a>
+                <span>{{rang.team.nom}}</span>
+                <span>{{rang.total}} p</span>
               </div>
             </div>
             <!-- <div class="monLabel">
@@ -316,7 +263,11 @@
                 </div>
               </div>
             </div> -->
-
+            <ion-item *ngFor="let file of files; let i = index">
+              <ion-label>{{ file.name }}</ion-label>
+              <ion-button (click)="downloadFile(i)">Télécharger</ion-button>
+            </ion-item>
+            
 
           </ion-grid>
         </ion-list>

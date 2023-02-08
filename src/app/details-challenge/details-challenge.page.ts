@@ -7,7 +7,7 @@ import { AfficherService } from '../Services/afficher.service';
 import { AjouterServiceService } from '../Services/ajouter-service.service';
 import { StorageService } from '../Services/storage.service';
 
-
+import { FileSaverService } from 'ngx-filesaver';
 @Component({
   selector: 'app-details-challenge',
   templateUrl: './details-challenge.page.html',
@@ -47,7 +47,16 @@ export class DetailsChallengePage implements OnInit {
   isLoggedIn: any;
   status: any;
   idTeam:any;
+  classement:any;
   roles: string[] = [];
+
+  files = [
+    { name: 'file1.txt', url: 'https://example.com/file1.txt' },
+    { name: 'file2.txt', url: 'https://example.com/file2.txt' },
+    { name: 'file3.txt', url: 'https://example.com/file3.txt' }
+  ];
+  
+
   showContent(opt: number) {
     this.content = opt;
   }
@@ -57,7 +66,8 @@ export class DetailsChallengePage implements OnInit {
     private routes: ActivatedRoute,
     private serviceAfficher: AfficherService,
     private serviceAjouter: AjouterServiceService,
-    private storage: StorageService, private http: HttpClient
+    private storage: StorageService, private http: HttpClient,
+    private fileSaverService: FileSaverService
   ) { }
   form !: FormGroup
 
@@ -100,6 +110,10 @@ export class DetailsChallengePage implements OnInit {
     });
     this.serviceAfficher.afficherCritereParIdChallenge(this.idChallenge1).subscribe(data => {
       this.critere = data;
+    });
+    this.serviceAfficher.classements(this.idChallenge1).subscribe(data => {
+      this.classement = data;
+      console.log("mes classements", JSON.stringify(this.classement))
     });
   
     this.serviceAfficher.afficherEquipeParUtilisateur(this.idChallenge1, moi).subscribe(data => {
@@ -203,7 +217,10 @@ export class DetailsChallengePage implements OnInit {
       });
   }
 
-
+  downloadFile(index: number) {
+    const file = this.files[index];
+    this.fileSaverService.save(file.url, file.name);
+  }
   segmentChanged(ev: any) {
     console.log('Segment changed', ev);
   }
