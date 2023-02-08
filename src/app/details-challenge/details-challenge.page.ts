@@ -7,7 +7,6 @@ import { AfficherService } from '../Services/afficher.service';
 import { AjouterServiceService } from '../Services/ajouter-service.service';
 import { StorageService } from '../Services/storage.service';
 
-import { FileSaverService } from 'ngx-filesaver';
 @Component({
   selector: 'app-details-challenge',
   templateUrl: './details-challenge.page.html',
@@ -47,6 +46,7 @@ export class DetailsChallengePage implements OnInit {
   isLoggedIn: any;
   status: any;
   idTeam:any;
+  users:any;
   classement:any;
   roles: string[] = [];
 
@@ -67,7 +67,6 @@ export class DetailsChallengePage implements OnInit {
     private serviceAfficher: AfficherService,
     private serviceAjouter: AjouterServiceService,
     private storage: StorageService, private http: HttpClient,
-    private fileSaverService: FileSaverService
   ) { }
   form !: FormGroup
 
@@ -77,7 +76,9 @@ export class DetailsChallengePage implements OnInit {
       this.connexionReussi = true;
       this.roles = this.storage.recupererUser().roles;
     }
-
+    this.serviceAfficher.graphiqueUser().subscribe(data=>{
+      this.users=data;
+    })
 
 
     this.isLoggedIn = this.storage.connexionReussi();
@@ -110,10 +111,11 @@ export class DetailsChallengePage implements OnInit {
     });
     this.serviceAfficher.afficherCritereParIdChallenge(this.idChallenge1).subscribe(data => {
       this.critere = data;
+      console.log("mes eeeeeee",JSON.stringify(this.critere));
     });
     this.serviceAfficher.classements(this.idChallenge1).subscribe(data => {
       this.classement = data;
-      console.log("mes classements", JSON.stringify(this.classement))
+      // console.log("mes classements", JSON.stringify(this.classement))
     });
   
     this.serviceAfficher.afficherEquipeParUtilisateur(this.idChallenge1, moi).subscribe(data => {
@@ -208,19 +210,24 @@ export class DetailsChallengePage implements OnInit {
     //     (err) => console.error(err)
     //   );
   }
-  onSubmit() {
-    console.log("mes avants" + this.userIds.split(',').map(id => +id));
-    this.serviceAjouter.addTeamUsersToTeamForChallenge(this.userIds.split(',').map(id => +id), this.teamId, this.challengeId)
-      .subscribe(response => {
-        this.message = response.message;
-        this.success = response.success;
+  // onSubmit() {
+  //   console.log("mes avants" + this.userIds.split(',').map(id => +id));
+  //   this.serviceAjouter.addTeamUsersToTeamForChallenge(this.userIds.split(',').map(id => +id), this.teamId, this.challengeId)
+  //     .subscribe(response => {
+  //       this.message = response.message;
+  //       this.success = response.success;
+  //     });
+  // }
+
+  addTeamUsersToTeamForChallenge() {
+    this.serviceAjouter.addTeamUsersToTeamForChallenge([2], 1, 1)
+      .subscribe(res => {
+        console.log(res);
       });
   }
 
-  downloadFile(index: number) {
-    const file = this.files[index];
-    this.fileSaverService.save(file.url, file.name);
-  }
+ 
+  
   segmentChanged(ev: any) {
     console.log('Segment changed', ev);
   }

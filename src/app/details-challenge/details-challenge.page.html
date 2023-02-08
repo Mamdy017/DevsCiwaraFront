@@ -25,23 +25,38 @@
                   ion-segment {
                     background-color: #3880FF;
                     color: white;
-                    height: 40%;
-                    position: absolute;
-                    top: 60%;
-                    width: 100%;
+                    
                   }
 
-                  ion-segment-button.segment-button-checked {
-                    background-color: #fff;
-                    color: #707070;
-                    border-radius: 12px;
-                    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
-                    height: 20% !important;
+                  ion-segment-button::part(indicator-background) {
+                    background: #FFF;
                   }
 
-                  ion-segment-button {
-                    height: 20% !important;
-                    /* 20% de moins que la hauteur originale */
+                  /* Material Design styles */
+                  ion-segment-button.md::part(native) {
+                    color: #000;
+                  }
+
+                  .segment-button-checked.md::part(native) {
+                    color: #fff;
+                  }
+
+                  ion-segment-button.md::part(indicator-background) {
+                    height: 4px;
+                  }
+
+                  /* iOS styles */
+                  ion-segment-button.ios::part(native) {
+                    color: #fff;
+                  }
+
+                  .segment-button-checked.ios::part(native) {
+                    color: #fff;
+                  }
+
+                  ion-segment-button.ios::part(indicator-background) {
+                    border-radius: 20px;
+                    
                   }
                 </style>
                 <ion-segment color="primary" [(ngModel)]="type" (ionChange)="segmentChanged($event)" scrollable>
@@ -62,6 +77,7 @@
                     <ion-label>Equipe</ion-label>
                   </ion-segment-button>
                 </ion-segment>
+
               </ion-card>
             </div>
           </div>
@@ -75,7 +91,9 @@
               <ion-accordion-group #accordionGroup *ngFor="let crite of critere; let i = index">
                 <ion-accordion [value]="i + 1">
                   <ion-item slot="header" color="light">
-                    <ion-label>Critere {{i+1}}</ion-label>
+                    <ion-label
+                      style="font-size: 1.2em; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold ; color: #3880FF;">Critere
+                      {{i+1}}</ion-label>
                   </ion-item>
                   <div class="ion-padding" slot="content">{{crite.critere}}</div>
                 </ion-accordion>
@@ -103,19 +121,19 @@
               </style>
             </div>
 
-            <div class="purchase-info">
+            <div class="purchase-info" style="display: flex;">
               <button *ngIf="isLoggedIn" type="button" class="btn"
                 style="font-size: 1.2em;margin-left: auto;margin-right: auto;" id="open-modal" expand="block">
-                &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
+                &nbsp;&nbsp;  Équipe  <i class="fas fa-plus" style="color: white;"></i> &nbsp;&nbsp;
               </button>
               <button *ngIf="!isLoggedIn" type="button" class="btn"
                 style="font-size: 1.2em;margin-left: auto;margin-right: auto;" routerLink="/menu/connexion"
                 expand="block">
-                &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
+                &nbsp;  Équipe <i class="fas fa-plus" style="color: white;"></i>
               </button> <br>
               <button *ngIf="isLoggedIn" type="button" class="btn"
                 style="font-size: 1.2em;margin-left: auto;margin-right: auto;" id="open-modal5" expand="block">
-                &nbsp; &nbsp;&nbsp; Créer une équipe <i class="fas fa-plus" style="color: white;"></i>
+                &nbsp;  Solution <i class="fas fa-plus" style="color: white;"></i> &nbsp;
               </button>
             </div>
 
@@ -144,8 +162,8 @@
                   style=" margin-top: 40px !important; position: absolute; margin-left: auto;margin-right: auto;">
                   <h1 style="font-size: 1.2em; margin-bottom: 3%; margin-left: 5% !important;">Joindre le zip du
                     solution</h1>
-                    <div *ngIf="status==false" style="color: red; padding: 2%;">{{ errorMessage }}</div>
-                    <div *ngIf="status==true" style="color: blue; padding: 2%;">{{ errorMessage }}</div>
+                  <div *ngIf="status==false" style="color: red; padding: 2%;">{{ errorMessage }}</div>
+                  <div *ngIf="status==true" style="color: blue; padding: 2%;">{{ errorMessage }}</div>
                   <div style="display: flex;
                    flex-direction: column; align-items: center; 
                   border: 1px solid #707070; margin-bottom: 2%; width: 85%; 
@@ -161,38 +179,27 @@
                 </form>
               </ng-template>
             </ion-modal>
-
-            <!-- <ion-modal #modal trigger="open-modal5">
-              <form [formGroup]="form">
-                <input type="hidden" formControlName="lienGithub" class="form-control">
-                <input type="hidden" formControlName="point" class="form-control">
-                  <label for="source">Source</label>
-                  <input type="file" formControlName="source" class="form-control" (change)="uploadFile($event)">
-                <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
-              </form>
-            </ion-modal> -->
-
-
-            <div class="social-links">
+            <div class="social-links" >
               <i class="fas fa-calendar"></i>
-              <p>&nbsp;Date de debut:&nbsp; </p>
+              <p>&nbsp;Début:&nbsp; </p>
               <span>{{datedebut | date: 'dd/MM/yyyy'}}</span>
             </div>
             <div class="social-links">
               <i class="fas fa-calendar"></i>
-              <p>&nbsp;Date de fin: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>
+              <p>&nbsp;Fin: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>
               <span>{{datefin | date: 'dd/MM/yyyy'}}</span>
             </div>
           </div>
         </ion-list>
         <ion-list *ngSwitchCase="'Code'">
           <ion-grid style="margin-top: 5%;">
-            <div class="monLabel"  *ngFor="let rang of classement let i = index">
+            <div class="monLabel" *ngFor="let rang of classement let i = index">
               <div class="social-media" style="display: flex;justify-content: space-around;">
                 <b>{{i+1}}</b>
                 <span>{{rang.team.nom}}</span>
                 <span>Code</span>
-                <a href="#"><i class="bi bi-cloud-arrow-down-fill" style="color: #3880FF;"></i></a>
+                <a href="{{rang.source}}" download=""><i class="bi bi-cloud-arrow-down-fill"
+                    style="color: #3880FF;"></i></a>
               </div>
             </div>
           </ion-grid>
@@ -252,23 +259,6 @@
                 <span>{{rang.total}} p</span>
               </div>
             </div>
-            <!-- <div class="monLabel">
-              <div class="social-media">
-                <a href="#">12</a>
-                <div class="icons" style="margin-right: 6%;">
-                  <span> <img src="../../assets/mobile.jpg" alt=""></span>
-                  <span><img src="../../assets/mobile.jpg" alt=""></span>
-                  <span><img src="../../assets/mobile.jpg" alt=""></span>
-                  <b style="margin-top: 3%; margin-left: 3%;">FirstEquipe</b>
-                </div>
-              </div>
-            </div> -->
-            <ion-item *ngFor="let file of files; let i = index">
-              <ion-label>{{ file.name }}</ion-label>
-              <ion-button (click)="downloadFile(i)">Télécharger</ion-button>
-            </ion-item>
-            
-
           </ion-grid>
         </ion-list>
         <ion-list *ngSwitchCase="'equipe'">
@@ -323,7 +313,7 @@
 
               <div class="container">
                 <h1>Add Users to Team for Challenge</h1>
-                <form (ngSubmit)="onSubmit()">
+                <form>
                   <div class="form-group">
                     <label for="userIds">User IDs:</label>
                     <input type="text" class="form-control" id="userIds" [(ngModel)]="userIds" name="userIds"
@@ -345,6 +335,19 @@
                 </div>
               </div>
 
+              <ion-list>
+
+                <ion-item>
+                  <ion-label position="stacked">Sélectionnez les utilisateurs</ion-label>
+                  <ion-select multiple="true">
+                    <ion-select-option *ngFor="let user of users">{{user.nom}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+            
+              </ion-list>
+              <ion-button expand="full" (click)="addTeamUsersToTeamForChallenge()">
+                Ajouter
+              </ion-button>
             </div>
             <h1 style="height: 20%;"></h1>
           </div>

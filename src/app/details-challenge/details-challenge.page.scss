@@ -102,9 +102,10 @@ ion-content {
 
 .purchase-info .btn{
     border: 1.5px solid #ddd;
-    border-radius: 25px;
+    border-radius: 12px;
     text-align: center;
-    padding: 0.45rem 0.8rem;
+    // padding: 0.8rem 0.8rem 0 0;
+    height: 1.7em;
     outline: 0;
     margin-right: 0.2rem;
     margin-bottom: 1rem;
